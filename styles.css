@@ -183,6 +183,9 @@ code {
 
   --page-bg: #f8fcff;
   --header-bg: #1A1A1A;
+
+  --width-desktop: 1440px;
+  --width-mobile: 375px;
 }
 
 h1 {
@@ -235,6 +238,9 @@ h6 {
     font-size: 16px;
     line-height: 24px;
   }
+  :root {
+    --full-width: var(--width-mobile);
+  }
 }
 
 /* ===== desktop: Screen Width >= 1440px ===== */
@@ -243,5 +249,8 @@ h6 {
   body {
     font-size: 18px;
     line-height: 22px;
+  }
+  :root {
+    --full-width: var(--width-desktop);
   }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { Button, Collapse } from 'antd'
 import {
@@ -17,7 +17,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Query } from 'react-apollo'
 
 import { GET_PAGE } from '../queries'
-import { debounce, getScrollTop } from '../common/util'
+import { debounce, getScrollTop, scrollTo } from '../common/util'
 
 import css from './index.module.scss'
 
@@ -30,6 +30,7 @@ export default function Home() {
   const [showLearnMenu, setShowLearnMenu] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [scrollTop, setScrollTop] = useState(0)
+  const [activeMobileMenu, setActiveMobileMenu] = useState([])
   useEffect(() => {
     if (document) {
       window.addEventListener('scroll', debounceScroll)
@@ -66,8 +67,18 @@ export default function Home() {
   }
   const debounceScroll = debounce(handleScroll, 600)
 
+  function handleCollapse(active) {
+    // workaround, better solution TBD.
+    if (active.length > activeMobileMenu.length) {
+      const rawScrollTop = getScrollTop() 
+      scrollTo(0, rawScrollTop + 100)
+    }
+    setActiveMobileMenu([...active])
+  }
+
   const menuProduct = (
     <div className={css.navMenu}>
+      <div className={css.navMenuWrapper}>
       <div className={css.overview}>
         <div className={css.title}>OVERVIEW</div>
         <img src="/icon-harness.svg" width="64" height="64" />
@@ -159,11 +170,13 @@ export default function Home() {
           </li>
         </ul>
       </div>
+      </div>
     </div>
   )
 
   const menuLearn = (
     <div className={css.navMenuLearn}>
+    <div className={css.navMenuWrapper}>
       <div className={css.learn}>
         <div className={css.title}>DEVELOPER</div>
         <ul>
@@ -249,10 +262,12 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </div>
   )
 
   const menuCompany = (
     <div className={css.navMenuCompany}>
+    <div className={css.navMenuWrapper}>
       <ul>
         <li>
           <a>
@@ -319,6 +334,7 @@ export default function Home() {
           </a>
         </li>
       </ul>
+    </div>
     </div>
   )
   function handImgLoad(e, imgId) {
@@ -471,6 +487,7 @@ export default function Home() {
                     defaultActiveKey={['1']}
                     expandIconPosition="right"
                     ghost
+                    onChange={handleCollapse}
                   >
                     <Panel header="Products" key="1">
                       <ul>
@@ -559,6 +576,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className={cx(css.customers, css.bgDot)}>
+                    <div className={css.consumerList}>
                     <Marquee gradient={false}>
                       <img src="/customer-logo.svg" />
                       <img src="/customer-logo.svg" />
@@ -568,18 +586,21 @@ export default function Home() {
                       <img src="/customer-logo.svg" />
                       <img src="/customer-logo.svg" />
                     </Marquee>
+                    </div>
                     <div className={css.btnContaner}>
                       <Button className={css.btnLight}>
                         Meet Our Customers
                       </Button>
                     </div>
                   </div>
-                  <div className={css.motionPathContatiner}>
+                  <div className={css.motionPathContainer}>
                     {/* <img src="/motion-path.svg" className={css.motionPathContent} /> */}
-                    <img
-                      src="/motion-path-woball.svg"
-                      className={css.motionPathContent}
-                    />
+                    <div className={css.motionPathContent}>
+                      <img
+                        src="/motion-path-woball.svg"
+                        // className={css.motionPathContent}
+                      />
+                    </div>
                     <div className={css.sectionWLeft}>
                       <div className={css.left}>
                         <h3>{piplineTitle /* One Pipeline for All */}</h3>
@@ -596,22 +617,24 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className={cx(css.sectionWRight, css.bgTeal)}>
-                      <div className={css.left}>
-                        {/* <img src="/illus-developer-first.svg" /> */}
-                        <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['developer']
-                          })}
-                          src="/illus-developer-first.svg"
-                          afterLoad={e => handImgLoad(e, 'developer')}
-                        />
-                      </div>
-                      <div className={css.right}>
-                        <h3>
-                          {developerTitle /* Developer-first Experience */}
-                        </h3>
-                        <div className={css.desc}>{developerDesc}</div>
+                    <div className={css.bgTeal}>
+                      <div className={css.sectionWRight}>
+                        <div className={css.left}>
+                          {/* <img src="/illus-developer-first.svg" /> */}
+                          <LazyLoadImage
+                            className={cx({
+                              [css.beforeLoaded]: !imgLoaded['developer']
+                            })}
+                            src="/illus-developer-first.svg"
+                            afterLoad={e => handImgLoad(e, 'developer')}
+                          />
+                        </div>
+                        <div className={css.right}>
+                          <h3>
+                            {developerTitle /* Developer-first Experience */}
+                          </h3>
+                          <div className={css.desc}>{developerDesc}</div>
+                        </div>
                       </div>
                     </div>
 
@@ -632,7 +655,8 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className={cx(css.sectionWRight, css.bgYellow)}>
+                    <div className={css.bgYellow}>
+                    <div className={css.sectionWRight}>
                       <div className={css.left}>
                         {/* <img src="/illus-governance.svg" /> */}
                         <LazyLoadImage
@@ -652,26 +676,28 @@ export default function Home() {
                         <div className={css.desc}>{governaceDesc}</div>
                       </div>
                     </div>
+                    </div>
 
                     <div className={cx(css.caseStudy, css.bgDot)}>
-                      <div className={css.quote}>
-                        <img src="/quote.svg" />
+                      <div className={css.sectionWrapper}>
+                        <div className={css.quote}>
+                          <img src="/quote.svg" />
+                        </div>
+                        <div className={css.customersSay}>{caseStudy1}</div>
+                        <div className={css.customerName}>{caseStudy1Client}</div>
+                        <Button className={css.btnLight}>Read Case Study</Button>
+                        {/* <img src="/favicon.png" className={css.profileRight} onLoad={e => handImgLoad(e, '/case-study-profile-1.svg')} /> */}
+                        <LazyLoadImage
+                          className={
+                            imgLoaded.p1
+                              ? css.profileRight
+                              : css.profileRightBeforeLoaded
+                          }
+                          src="/case-study-profile-1.svg" // use normal <img> attributes as props
+                          afterLoad={e => handImgLoad(e, 'p1')}
+                        />
                       </div>
-                      <div className={css.customersSay}>{caseStudy1}</div>
-                      <div className={css.customerName}>{caseStudy1Client}</div>
-                      <Button className={css.btnLight}>Read Case Study</Button>
-                      {/* <img src="/favicon.png" className={css.profileRight} onLoad={e => handImgLoad(e, '/case-study-profile-1.svg')} /> */}
-                      <LazyLoadImage
-                        className={
-                          imgLoaded.p1
-                            ? css.profileRight
-                            : css.profileRightBeforeLoaded
-                        }
-                        src="/case-study-profile-1.svg" // use normal <img> attributes as props
-                        afterLoad={e => handImgLoad(e, 'p1')}
-                      />
                     </div>
-                    {/* 243px */}
 
                     <div className={css.explore}>
                       <h1>Explore</h1>
@@ -716,17 +742,19 @@ export default function Home() {
                           <Button>Learn More</Button>
                         </div>
                       </div>
-                      <div className={cx(css.sectionExploreWRight, css.bgTeal)}>
-                        <div className={css.left}>
-                          {/* <img src="/illus-ci.svg" /> */}
-                        </div>
-                        <div className={css.right}>
-                          <h3>{ciTitle /*Continuous Integration*/}</h3>
-                          <h6 className={css.subTitle}>{ciSubTitle}</h6>
-                          <div className={css.desc}>{ciDesc}</div>
-                          <div className={css.btnContaner}>
-                            <Button type="primary">Try It Out</Button>
-                            <Button>Learn More</Button>
+                      <div className={css.bgTeal}>
+                        <div className={css.sectionExploreWRight}>
+                          <div className={css.left}>
+                            {/* <img src="/illus-ci.svg" /> */}
+                          </div>
+                          <div className={css.right}>
+                            <h3>{ciTitle /*Continuous Integration*/}</h3>
+                            <h6 className={css.subTitle}>{ciSubTitle}</h6>
+                            <div className={css.desc}>{ciDesc}</div>
+                            <div className={css.btnContaner}>
+                              <Button type="primary">Try It Out</Button>
+                              <Button>Learn More</Button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -757,7 +785,8 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className={cx(css.sectionExploreWRight, css.bgYellow)}>
+                    <div className={css.bgYellow}>
+                    <div className={css.sectionExploreWRight}>
                       <div className={cx(css.left, css.FloatingImg)}>
                         {/* <img src="/illus-feature-flags.svg" /> */}
                         <LazyLoadImage
@@ -780,6 +809,7 @@ export default function Home() {
                           <Button>Learn More</Button>
                         </div>
                       </div>
+                    </div>
                     </div>
 
                     <div
@@ -812,24 +842,27 @@ export default function Home() {
                       </div>
                     </div>
 
+
                     <div className={cx(css.caseStudy, css.bgDotBlue)}>
-                      <div className={css.quote}>
-                        <img src="/quote.svg" />
+                      <div className={css.sectionWrapper}>
+                        <div className={css.quote}>
+                          <img src="/quote.svg" />
+                        </div>
+                        <div className={css.customersSay}>{caseStudy2}</div>
+                        <div className={css.customerName}>{caseStudy2Client}</div>
+                        <Button className={css.btnLight}>Read Case Study</Button>
+                        {/* <img src="/favicon.png" className={css.profileLeft} onLoad={e => handImgLoad(e, '/case-study-profile-2.svg')} /> */}
+                        <LazyLoadImage
+                          className={
+                            imgLoaded.p2
+                              ? css.profileLeft
+                              : css.profileLeftBeforeLoaded
+                          }
+                          src="/case-study-profile-2.svg" // use normal <img> attributes as props
+                          beforeLoad={e => handImgLoad(e, 'p2')}
+                          afterLoad={e => handImgLoad(e, 'p2')}
+                        />
                       </div>
-                      <div className={css.customersSay}>{caseStudy2}</div>
-                      <div className={css.customerName}>{caseStudy2Client}</div>
-                      <Button className={css.btnLight}>Read Case Study</Button>
-                      {/* <img src="/favicon.png" className={css.profileLeft} onLoad={e => handImgLoad(e, '/case-study-profile-2.svg')} /> */}
-                      <LazyLoadImage
-                        className={
-                          imgLoaded.p2
-                            ? css.profileLeft
-                            : css.profileLeftBeforeLoaded
-                        }
-                        src="/case-study-profile-2.svg" // use normal <img> attributes as props
-                        beforeLoad={e => handImgLoad(e, 'p2')}
-                        afterLoad={e => handImgLoad(e, 'p2')}
-                      />
                     </div>
                   </div>
                 </main>

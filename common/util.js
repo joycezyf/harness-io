@@ -34,3 +34,15 @@ export function getScrollTop() {
     return 0
   }
 }
+
+
+// scrollTo
+export function scrollTo(x, y) {
+  if (window.scrollTo) {
+    window.scrollTo(x, y)
+  } else if (document.documentElement.scrollTo) {
+    document.documentElement.scrollTo(x, y)
+  } else if (document.body.scrollTo) {
+    document.body.scrollTo(x, y)
+  }
+}
