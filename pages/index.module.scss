@@ -19,7 +19,7 @@
       color: var(--white);
       display: grid;
       grid-template-columns: 1fr 172px;
-      z-index: 39;
+      z-index: 19;
       box-shadow: 0 2px 2px 0 rgb(255 255 255 / 16%);
       .logo {
         padding: 16px 0 0 24px;
@@ -109,8 +109,8 @@
     .navMenuLearn,
     .navMenuCompany {
       position: absolute;
-      background: var(--header-bg) url(/nav-menu-bg.gif) right bottom no-repeat;
-      background-size: 20%;
+      background: var(--header-bg) url(/nav-menu-bg.svg) right bottom no-repeat;
+      // background-size: 20%;
       border-top: 1px solid #22222a;
       height: 340px;
       width: 100%;
@@ -474,9 +474,43 @@
         // workaround to fix the dark borders of the gif on top and bottom
         overflow: hidden;
         height: 598px;
-        img {
+        position: relative;
+        img, video {
           // workaround to fix the dark borders of the gif on top and bottom
           margin-top: -2px;
+        }
+        .linkCI, .linkCD, .linkFeatureFlags, .linkCloudCost, .linkChIntel {
+          position: absolute;
+          left: 48px;
+          top: 36px;
+          width: 135px;
+          height: 105px;
+          cursor: pointer;
+          border-radius: 10px;
+          &:hover, &:active {
+            background-color: rgb(2 120 231 / 10%);
+            box-shadow: 0 0 15px 15px rgb(2 120 231 / 10%);
+          }
+        }
+        .linkCI {
+          left: 48px;
+          top: 36px;
+        }
+        .linkCD {
+          left: 220px;
+          top: 70px;
+        }
+        .linkFeatureFlags {
+          left: 18px;
+          top: 211px;
+        }
+        .linkCloudCost {
+          left: 215px;
+          top: 250px;
+        }
+        .linkChIntel {
+          left: 40px;
+          top: 420px;
         }
       }
       // &:hover {
@@ -587,6 +621,7 @@
         left: 24px;
         transition: 1s ease;
         width: 138px;
+        height: auto;
       }
       .profileLeftBeforeLoaded {
         // top: -200px;
@@ -599,6 +634,7 @@
         right: 24px;
         transition: 1s ease;
         width: 138px;
+        height: auto;
       }
       .profileRightBeforeLoaded {
         // top: -200px;
@@ -646,6 +682,7 @@
           transition: 1s ease;
           // position: absolute;
           width: 100%;
+          height: auto;
         }
       }
       .sectionWLeft {
@@ -689,6 +726,7 @@
         display: flex;
         flex-flow: column-reverse nowrap;
         .right {
+
           // padding-left: 110px;
           // display: flex;
           // flex-direction: column;
@@ -750,6 +788,7 @@
           // left: 0px;
           // top: 24px;
           width: 100%;
+          height: auto;
         }
         .btnContaner {
           // margin-top: 32px;
@@ -977,14 +1016,14 @@
     .navMenuLearn,
     .navMenuCompany {
       position: absolute;
-      background: var(--header-bg) url(/nav-menu-bg.gif) right bottom no-repeat;
-      background-size: 20%;
+      background: var(--header-bg) url(/nav-menu-bg.svg) right bottom no-repeat;
+      // background-size: 20%;
       border-top: 1px solid #22222a;
       height: 340px;
       width: 100%;
       top: 104px;
       left: 0;
-      z-index: 9;
+      z-index: 10; // 9;
       box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
       transition: 0.3s ease;
       .navMenuWrapper {
@@ -1158,9 +1197,11 @@
       min-height: 660px;
       display: flex;
       flex-direction: row;
+      position: relative;
       .introTextContainer {
         width: 500px;
         flex-shrink: 0;
+        z-index: 9;
         .introText {
           font-size: 56px;
           line-height: 68px;
@@ -1196,9 +1237,45 @@
       .introIllustration {
         flex-grow: 1;
         flex-shrink: 1;
+        position: absolute; // relative;
+        z-index: 0;
+        right: 0;
         // img {
         //   width: 911px;
         // }
+        .linkCI, .linkCD, .linkFeatureFlags, .linkCloudCost, .linkChIntel {
+          position: absolute;
+          left: 327px;
+          top: 188px;
+          width: 120px;
+          height: 160px;
+          cursor: pointer;
+          border-radius: 10px;
+          &:hover {
+            background-color: rgb(2 120 231 / 10%);
+            box-shadow: 0 0 15px 15px rgb(2 120 231 / 10%);
+          }
+        }
+        .linkCI {
+          left: 125px;
+          top: 180px;
+        }
+        .linkCD {
+          left: 327px;
+          top: 188px;
+        }
+        .linkFeatureFlags {
+          left: 455px;
+          top: 45px;
+        }
+        .linkCloudCost {
+          left: 610px;
+          top: 250px;
+        }
+        .linkChIntel {
+          left: 750px;
+          top: 50px;
+        }
       }
       // &:hover {
       //   background-image: url(/harness-intro-hover.gif);
@@ -1340,7 +1417,7 @@
         margin: 0 auto;
         img {
           position: absolute;
-          top: 117px;
+          top: 105px;
           right: 0;
         }
       }
@@ -1386,7 +1463,7 @@
           }
         }
         .right {
-          padding-top: 61px;
+          padding-top: 32px;
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
@@ -1415,10 +1492,10 @@
           }
         }
         .left {
-          padding-top: 61px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
+          padding-top: 32px;
+          // display: flex;
+          // align-items: center;
+          // justify-content: flex-start;
           .btnContaner {
             display: none;
           }

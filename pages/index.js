@@ -38,11 +38,20 @@ export default function Home() {
   const [clientWidth, setClientWidth] = useState(0)
   const [activeMobileMenu, setActiveMobileMenu] = useState([])
   useEffect(() => {
-    if (document) {
+    if (window.addEventListener) {
       window.addEventListener('scroll', debounceScroll)
-    }
-    return function cleanup() {
-      window.removeEventListener('scroll', debounceScroll)
+      window.addEventListener('resize', debounceScroll)
+      return function cleanup() {
+        window.removeEventListener('scroll', debounceScroll)
+        window.removeEventListener('resize', debounceScroll)
+      }
+    } else if (window.attachEvent) {
+      window.attachEvent('onscroll', debounceScroll)
+      window.attachEvent('onresize', debounceScroll)
+      return function cleanup() {
+        window.detachEvent('onscroll', debounceScroll)
+        window.detachEvent('onresize', debounceScroll)
+      }
     }
   })
   function switchProductMenu(e) {
@@ -345,7 +354,7 @@ export default function Home() {
       </div>
     </div>
   )
-  function handImgLoad(e, imgId) {
+  function handleImgLoad(e, imgId) {
     setTimeout(
       () =>
         setImgLoaded(loaded => Object.assign({}, loaded, { [imgId]: true })),
@@ -359,8 +368,9 @@ export default function Home() {
         const {
           data: {
             marketingSite: {
-              heroTitle = '',
-              heroSubTitle = '',
+              heroTitle = 'The Modern Software Delivery Platform',
+              heroSubTitle = `Loved by Developers
+              Trusted by Businesses`,
               piplineTitle,
               pipelineDesc,
               developerTitle,
@@ -395,6 +405,12 @@ export default function Home() {
         //   result,
         //   heroTitle,
         //   heroSubTitle
+        // })
+        const isMobile = clientWidth > 0 && clientWidth < 1440
+        // console.log('... isMobile ...', {
+        //   p1: clientWidth > 0,
+        //   p2: clientWidth < 1440,
+        //   isMobile
         // })
         return (
           <>
@@ -582,8 +598,27 @@ export default function Home() {
                         ></iframe>
                       </div>
                     </div>
-                    {(clientWidth !== 0 && clientWidth < 1440) ? (
+                    {isMobile ? (
                       <div className={css.introIllustration}>
+                        <video
+                          src="/harness-intro-mobile-hover.mp4"
+                          width="375"
+                          muted={true}
+                          autoPlay={true}
+                          loop={true}
+                        >
+                          {/* <source src="/harness-intro-mobile-hover.mp4" type="video/mp4" /> */}
+                          Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        <a className={css.linkCI} href="#ci" />
+                        <a className={css.linkCD} href="#cd" />
+                        <a
+                          className={css.linkFeatureFlags}
+                          href="#feature-flags"
+                        />
+                        <a className={css.linkCloudCost} href="#cloud-cost" />
+                        <a className={css.linkChIntel} href="#ch-intel" />
+                        {/*
                         <LazyLoadImage
                           src="/harness-intro-mobile-hover.gif"
                           placeholderSrc="/harness-intro-mobile.svg"
@@ -616,10 +651,29 @@ export default function Home() {
                             href="#cloud-cost"
                           />
                         </map>
+                        */}
                       </div>
                     ) : (
                       <div className={css.introIllustration}>
-                        <LazyLoadImage
+                        <video
+                          width="961"
+                          src="/harness-intro-hover.mp4"
+                          muted={true}
+                          autoPlay={true}
+                          loop={true}
+                        >
+                          {/* <source src="/harness-intro-hover.mp4" type="video/mp4" /> */}
+                          Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        <a className={css.linkCI} href="#ci" />
+                        <a className={css.linkCD} href="#cd" />
+                        <a
+                          className={css.linkFeatureFlags}
+                          href="#feature-flags"
+                        />
+                        <a className={css.linkCloudCost} href="#cloud-cost" />
+                        <a className={css.linkChIntel} href="#ch-intel" />
+                        {/* <LazyLoadImage
                           src="/harness-intro-hover.gif"
                           placeholderSrc="/harness-intro.svg"
                           usemap="#introMap"
@@ -650,7 +704,7 @@ export default function Home() {
                             coords="710,46,887,182"
                             href="#ch-intel"
                           />
-                        </map>
+                        </map> */}
                       </div>
                     )}
                   </div>
@@ -687,11 +741,14 @@ export default function Home() {
                       </div>
                       <div className={css.right}>
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['pipleline']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['pipleline']
+                          // })}
                           src="/illus-pipline.svg"
-                          afterLoad={e => handImgLoad(e, 'pipleline')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'pipleline')}
+                          width="825"
+                          height="356"
                         />
                       </div>
                     </div>
@@ -701,11 +758,14 @@ export default function Home() {
                         <div className={css.left}>
                           {/* <img src="/illus-developer-first.svg" /> */}
                           <LazyLoadImage
-                            className={cx({
-                              [css.beforeLoaded]: !imgLoaded['developer']
-                            })}
+                            // className={cx({
+                            //   [css.beforeLoaded]: !imgLoaded['developer']
+                            // })}
                             src="/illus-developer-first.svg"
-                            afterLoad={e => handImgLoad(e, 'developer')}
+                            placeholderSrc="/favicon.png"
+                            // afterLoad={e => handleImgLoad(e, 'developer')}
+                            width="710"
+                            height="424"
                           />
                         </div>
                         <div className={css.right}>
@@ -725,11 +785,14 @@ export default function Home() {
                       <div className={css.right}>
                         {/* <img src="/illus-ai-ml.svg" /> */}
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['ai']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['ai']
+                          // })}
                           src="/illus-ai-ml.svg"
-                          afterLoad={e => handImgLoad(e, 'ai')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'ai')}
+                          width="588"
+                          height="376"
                         />
                       </div>
                     </div>
@@ -739,11 +802,14 @@ export default function Home() {
                         <div className={css.left}>
                           {/* <img src="/illus-governance.svg" /> */}
                           <LazyLoadImage
-                            className={cx({
-                              [css.beforeLoaded]: !imgLoaded['governance']
-                            })}
+                            // className={cx({
+                            //   [css.beforeLoaded]: !imgLoaded['governance']
+                            // })}
                             src="/illus-governance.svg"
-                            afterLoad={e => handImgLoad(e, 'governance')}
+                            placeholderSrc="/favicon.png"
+                            // afterLoad={e => handleImgLoad(e, 'governance')}
+                            width="738"
+                            height="415"
                           />
                         </div>
                         <div className={css.right}>
@@ -760,7 +826,7 @@ export default function Home() {
                     <div className={cx(css.caseStudy, css.bgDot)}>
                       <div className={css.sectionWrapper}>
                         <div className={css.quote}>
-                          <img src="/quote.svg" />
+                          <img src="/quote.svg" width="34" height="26" />
                         </div>
                         <div className={css.customersSay}>{caseStudy1}</div>
                         <div className={css.customerName}>
@@ -769,7 +835,7 @@ export default function Home() {
                         <Button className={css.btnLight}>
                           Read Case Study
                         </Button>
-                        {/* <img src="/favicon.png" className={css.profileRight} onLoad={e => handImgLoad(e, '/case-study-profile-1.svg')} /> */}
+                        {/* <img src="/favicon.png" className={css.profileRight} onLoad={e => handleImgLoad(e, '/case-study-profile-1.svg')} /> */}
                         <LazyLoadImage
                           className={
                             imgLoaded.p1
@@ -777,7 +843,10 @@ export default function Home() {
                               : css.profileRightBeforeLoaded
                           }
                           src="/case-study-profile-1.svg"
-                          afterLoad={e => handImgLoad(e, 'p1')}
+                          placeholderSrc="/favicon.png"
+                          afterLoad={e => handleImgLoad(e, 'p1')}
+                          width="236"
+                          height="205"
                         />
                       </div>
                     </div>
@@ -798,11 +867,14 @@ export default function Home() {
                       <div className={css.right}>
                         {/* <img src="/illus-cd.svg" /> */}
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['cd']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['cd']
+                          // })}
                           src="/illus-cd.svg"
-                          afterLoad={e => handImgLoad(e, 'cd')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'cd')}
+                          width="860"
+                          height="460"
                         />
                         <div className={css.btnContaner}>
                           <Button>Learn More</Button>
@@ -815,11 +887,14 @@ export default function Home() {
                       <div className={css.preCI}>
                         {/* <img src="/illus-ci.svg" /> */}
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['ci']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['ci']
+                          // })}
                           src="/illus-ci.svg"
-                          afterLoad={e => handImgLoad(e, 'ci')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'ci')}
+                          width="800"
+                          height="651"
                         />
                         <div className={css.btnContaner}>
                           <Button>Learn More</Button>
@@ -859,11 +934,14 @@ export default function Home() {
                       <div className={css.right}>
                         {/* <img src="/illus-cloud-cost.svg" /> */}
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['cost']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['cost']
+                          // })}
                           src="/illus-cloud-cost.svg"
-                          afterLoad={e => handImgLoad(e, 'cost')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'cost')}
+                          width="688"
+                          height="520"
                         />
                         <div className={css.btnContaner}>
                           <Button>Learn More</Button>
@@ -876,11 +954,14 @@ export default function Home() {
                         <div className={cx(css.left, css.FloatingImg)}>
                           {/* <img src="/illus-feature-flags.svg" /> */}
                           <LazyLoadImage
-                            className={cx({
-                              [css.beforeLoaded]: !imgLoaded['flags']
-                            })}
+                            // className={cx({
+                            //   [css.beforeLoaded]: !imgLoaded['flags']
+                            // })}
                             src="/illus-feature-flags.svg"
-                            afterLoad={e => handImgLoad(e, 'flags')}
+                            placeholderSrc="/favicon.png"
+                            // afterLoad={e => handleImgLoad(e, 'flags')}
+                            width="789"
+                            height="543"
                           />
                           <div className={css.btnContaner}>
                             <Button>Learn More</Button>
@@ -919,11 +1000,14 @@ export default function Home() {
                       <div className={css.right}>
                         {/* <img src="/illus-ch-intel.svg" /> */}
                         <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['change']
-                          })}
+                          // className={cx({
+                          //   [css.beforeLoaded]: !imgLoaded['change']
+                          // })}
                           src="/illus-ch-intel.svg"
-                          afterLoad={e => handImgLoad(e, 'change')}
+                          placeholderSrc="/favicon.png"
+                          // afterLoad={e => handleImgLoad(e, 'change')}
+                          width="844"
+                          height="477"
                         />
                         <div className={css.btnContaner}>
                           <Button>Learn More</Button>
@@ -943,16 +1027,19 @@ export default function Home() {
                         <Button className={css.btnLight}>
                           Read Case Study
                         </Button>
-                        {/* <img src="/favicon.png" className={css.profileLeft} onLoad={e => handImgLoad(e, '/case-study-profile-2.svg')} /> */}
+                        {/* <img src="/favicon.png" className={css.profileLeft} onLoad={e => handleImgLoad(e, '/case-study-profile-2.svg')} /> */}
                         <LazyLoadImage
                           className={
                             imgLoaded.p2
                               ? css.profileLeft
                               : css.profileLeftBeforeLoaded
                           }
-                          src="/case-study-profile-2.svg" // use normal <img> attributes as props
-                          beforeLoad={e => handImgLoad(e, 'p2')}
-                          afterLoad={e => handImgLoad(e, 'p2')}
+                          src="/case-study-profile-2.svg"
+                          placeholderSrc="/favicon.png"
+                          // beforeLoad={e => handleImgLoad(e, 'p2')}
+                          afterLoad={e => handleImgLoad(e, 'p2')}
+                          width="315"
+                          height="249"
                         />
                       </div>
                     </div>
