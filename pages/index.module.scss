@@ -12,11 +12,15 @@
     display: block;
     // overflow: auto;
     .headerNavWrapper {
+      width: var(--full-width);
+      position: fixed;
       background-color: var(--white);
       height: 56px;
       color: var(--white);
       display: grid;
       grid-template-columns: 1fr 172px;
+      z-index: 39;
+      box-shadow: 0 2px 2px 0 rgb(255 255 255 / 16%);
       .logo {
         padding: 16px 0 0 24px;
         .img {
@@ -426,11 +430,12 @@
   .main {
     background: var(--white);
     .harnessIntro {
-      padding: 24px;
-      background: url(/harness-intro-mobile.svg) bottom no-repeat;
-      min-height: 1100px;
+      padding: 80px 0 0 0;
+      // background: url(/harness-intro-mobile.svg) bottom no-repeat;
+      // min-height: 1100px;
       .introTextContainer {
         // width: 530px;
+        padding: 0 24px;
         .introText {
           font-size: 48px;
           line-height: 56px;
@@ -465,9 +470,18 @@
           text-align: center;
         }
       }
-      &:hover {
-        background-image: url(/harness-intro-mobile-hover.gif);
+      .introIllustration {
+        // workaround to fix the dark borders of the gif on top and bottom
+        overflow: hidden;
+        height: 598px;
+        img {
+          // workaround to fix the dark borders of the gif on top and bottom
+          margin-top: -2px;
+        }
       }
+      // &:hover {
+      //   background-image: url(/harness-intro-mobile-hover.gif);
+      // }
     }
 
     .btnLight {
@@ -639,7 +653,7 @@
         // display: grid;
         // grid-template-columns: 633px 1fr;
         .left {
-          padding: 24px 16px;
+          padding: 48px 16px 24px 16px;
           // display: flex;
           // flex-direction: column;
           // align-items: flex-start;
@@ -681,7 +695,7 @@
           // align-items: flex-start;
           // justify-content: center;
           // width: 522px;
-          padding: 24px 16px;
+          padding: 48px 16px 24px 16px;
           .desc {
             margin-top: 24px;
             font-weight: 400; // 600;
@@ -1075,17 +1089,16 @@
       }
     }
     .navMenuLearn {
-
       .navMenuWrapper {
-      grid-template-columns: 365px 365px 1fr;
+        grid-template-columns: 365px 365px 1fr;
       }
     }
     .navMenuCompany {
       height: 190px;
       .navMenuWrapper {
-      display: block;
-      padding-left: 106px;
-      padding-top: 32px;
+        display: block;
+        padding-left: 106px;
+        padding-top: 32px;
       }
       ul {
         margin: 0;
@@ -1141,10 +1154,13 @@
       width: var(--full-width);
       margin: 0 auto;
       padding: 96px 0 62px 110px;
-      background: url(/harness-intro.svg) right bottom no-repeat;
+      // background: url(/harness-intro.svg) right bottom no-repeat;
       min-height: 660px;
+      display: flex;
+      flex-direction: row;
       .introTextContainer {
-        width: 530px;
+        width: 500px;
+        flex-shrink: 0;
         .introText {
           font-size: 56px;
           line-height: 68px;
@@ -1177,9 +1193,16 @@
           margin-top: 36px;
         }
       }
-      &:hover {
-        background-image: url(/harness-intro-hover.gif);
+      .introIllustration {
+        flex-grow: 1;
+        flex-shrink: 1;
+        // img {
+        //   width: 911px;
+        // }
       }
+      // &:hover {
+      //   background-image: url(/harness-intro-hover.gif);
+      // }
     }
 
     .btnLight {
@@ -1315,13 +1338,14 @@
         position: relative;
         width: var(--full-width);
         margin: 0 auto;
-        img{
+        img {
           position: absolute;
           top: 117px;
           right: 0;
         }
       }
-      .sectionWrapper, .preCI {
+      .sectionWrapper,
+      .preCI {
         width: var(--full-width);
         margin: 0 auto;
         position: relative;

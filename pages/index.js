@@ -17,7 +17,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Query } from 'react-apollo'
 
 import { GET_PAGE } from '../queries'
-import { debounce, getScrollTop, scrollTo } from '../common/util'
+import {
+  debounce,
+  getScrollTop,
+  scrollTo,
+  getClientWidth
+} from '../common/util'
 
 import css from './index.module.scss'
 
@@ -30,6 +35,7 @@ export default function Home() {
   const [showLearnMenu, setShowLearnMenu] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [scrollTop, setScrollTop] = useState(0)
+  const [clientWidth, setClientWidth] = useState(0)
   const [activeMobileMenu, setActiveMobileMenu] = useState([])
   useEffect(() => {
     if (document) {
@@ -63,14 +69,16 @@ export default function Home() {
   }
   function handleScroll(e) {
     const rawScrollTop = getScrollTop() // document.documentElement.scrollTop
+    const rawClientTop = getClientWidth()
     setScrollTop(rawScrollTop)
+    setClientWidth(rawClientTop)
   }
   const debounceScroll = debounce(handleScroll, 600)
 
   function handleCollapse(active) {
     // workaround, better solution TBD.
     if (active.length > activeMobileMenu.length) {
-      const rawScrollTop = getScrollTop() 
+      const rawScrollTop = getScrollTop()
       scrollTo(0, rawScrollTop + 100)
     }
     setActiveMobileMenu([...active])
@@ -79,262 +87,262 @@ export default function Home() {
   const menuProduct = (
     <div className={css.navMenu}>
       <div className={css.navMenuWrapper}>
-      <div className={css.overview}>
-        <div className={css.title}>OVERVIEW</div>
-        <img src="/icon-harness.svg" width="64" height="64" />
-        <div className={css.harnessPlatform}>Harness Platform</div>
-        <div className={css.harnessIntro}>
-          A self-service platform solution for every team. The Harness software
-          delivery platform enables software changes of all types to reach
-          production environments in a safe, quick, and sustainable way.
+        <div className={css.overview}>
+          <div className={css.title}>OVERVIEW</div>
+          <img src="/icon-harness.svg" width="64" height="64" />
+          <div className={css.harnessPlatform}>Harness Platform</div>
+          <div className={css.harnessIntro}>
+            A self-service platform solution for every team. The Harness
+            software delivery platform enables software changes of all types to
+            reach production environments in a safe, quick, and sustainable way.
+          </div>
         </div>
-      </div>
-      <div className={css.modules}>
-        <div className={css.title}>MODULES</div>
-        <ul>
-          <li>
-            <div>
-              <img src="/icon-cd.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Continuous Delivery</div>
-              <div className={css.harnessIntro}>
-                Self-Service Continuous Delivery module that enables engineers
-                to deploy on-demand.
+        <div className={css.modules}>
+          <div className={css.title}>MODULES</div>
+          <ul>
+            <li>
+              <div>
+                <img src="/icon-cd.svg" width="64" height="64" />
               </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/icon-ci.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Continuous Integration</div>
-              <div className={css.harnessIntro}>
-                Container-native CI Solution - all builds are isolated, and all
-                extensions are standardized.
+              <div>
+                <div className={css.moduleTitle}>Continuous Delivery</div>
+                <div className={css.harnessIntro}>
+                  Self-Service Continuous Delivery module that enables engineers
+                  to deploy on-demand.
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/icon-ch-intel.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Change Intelligence</div>
-              <div className={css.harnessIntro}>
-                Keep sane with your change velocity - manage SLOs and error
-                budgets with ease.
+            </li>
+            <li>
+              <div>
+                <img src="/icon-ci.svg" width="64" height="64" />
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div className={css.modulesCol2}>
-        <ul>
-          <li>
-            <div>
-              <img src="/icon-ff.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Feature Flags</div>
-              <div className={css.harnessIntro}>
-                Empower product development teams to quickly release features,
-                with minimal risk.
+              <div>
+                <div className={css.moduleTitle}>Continuous Integration</div>
+                <div className={css.harnessIntro}>
+                  Container-native CI Solution - all builds are isolated, and
+                  all extensions are standardized.
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/icon-ccm.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Cloud Cost Management</div>
-              <div className={css.harnessIntro}>
-                Empowers engineers with cloud cost visibility of their apps,
-                microservices, and clusters.
+            </li>
+            <li>
+              <div>
+                <img src="/icon-ch-intel.svg" width="64" height="64" />
               </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/icon-infra.svg" width="64" height="64" />
-            </div>
-            <div>
-              <div className={css.moduleTitle}>Continuous Infrastructure</div>
-              <div className={css.harnessIntro}>
-                Manage your infrastructure as code - realized via terraform
-                scripts or json.
+              <div>
+                <div className={css.moduleTitle}>Change Intelligence</div>
+                <div className={css.harnessIntro}>
+                  Keep sane with your change velocity - manage SLOs and error
+                  budgets with ease.
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
+        <div className={css.modulesCol2}>
+          <ul>
+            <li>
+              <div>
+                <img src="/icon-ff.svg" width="64" height="64" />
+              </div>
+              <div>
+                <div className={css.moduleTitle}>Feature Flags</div>
+                <div className={css.harnessIntro}>
+                  Empower product development teams to quickly release features,
+                  with minimal risk.
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/icon-ccm.svg" width="64" height="64" />
+              </div>
+              <div>
+                <div className={css.moduleTitle}>Cloud Cost Management</div>
+                <div className={css.harnessIntro}>
+                  Empowers engineers with cloud cost visibility of their apps,
+                  microservices, and clusters.
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/icon-infra.svg" width="64" height="64" />
+              </div>
+              <div>
+                <div className={css.moduleTitle}>Continuous Infrastructure</div>
+                <div className={css.harnessIntro}>
+                  Manage your infrastructure as code - realized via terraform
+                  scripts or json.
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
 
   const menuLearn = (
     <div className={css.navMenuLearn}>
-    <div className={css.navMenuWrapper}>
-      <div className={css.learn}>
-        <div className={css.title}>DEVELOPER</div>
-        <ul>
-          <li>
-            <a>Documentation</a>
-          </li>
-          <li>
-            <a>Integrations</a>
-          </li>
-          <li>
-            <a>API</a>
-          </li>
-          <li>
-            <a>DevOps tools</a>
-          </li>
-          <li>
-            <a>Blogs</a>
-          </li>
-          <li>
-            <a>
-              Community <ExportOutlined />
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className={css.learn}>
-        <div className={css.title}>RESOURCES</div>
-        <ul>
-          <li>
-            <a>Upcoming events and webinars</a>
-          </li>
-          <li>
-            <a>On-demand videos</a>
-          </li>
-          <li>
-            <a>Collaterals</a>
-          </li>
-        </ul>
-      </div>
-      <div className={css.learn}>
-        <div className={css.title}>USE CASE</div>
-        <div className={css.twoCols}>
+      <div className={css.navMenuWrapper}>
+        <div className={css.learn}>
+          <div className={css.title}>DEVELOPER</div>
           <ul>
             <li>
-              <a>Self-Service Continuous Delivery</a>
+              <a>Documentation</a>
             </li>
             <li>
-              <a>Public Cloud Migration</a>
+              <a>Integrations</a>
             </li>
             <li>
-              <a>Kubernetes Deployments</a>
+              <a>API</a>
             </li>
             <li>
-              <a>Scaling Beyond Jenkins Pipelines</a>
+              <a>DevOps tools</a>
             </li>
             <li>
-              <a>Spinnaker Not Enough</a>
+              <a>Blogs</a>
             </li>
             <li>
-              <a>Modern Applications</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a>DevSecOps – Compliance &amp; Governance</a>
-            </li>
-            <li>
-              <a>Cloud Cost Management</a>
-            </li>
-            <li>
-              <a>Kubernetes Deployments</a>
-            </li>
-            <li>
-              <a>GitOps</a>
-            </li>
-            <li>
-              <a>Automation</a>
-            </li>
-            <li>
-              <a>Verification</a>
+              <a>
+                Community <ExportOutlined />
+              </a>
             </li>
           </ul>
         </div>
+        <div className={css.learn}>
+          <div className={css.title}>RESOURCES</div>
+          <ul>
+            <li>
+              <a>Upcoming events and webinars</a>
+            </li>
+            <li>
+              <a>On-demand videos</a>
+            </li>
+            <li>
+              <a>Collaterals</a>
+            </li>
+          </ul>
+        </div>
+        <div className={css.learn}>
+          <div className={css.title}>USE CASE</div>
+          <div className={css.twoCols}>
+            <ul>
+              <li>
+                <a>Self-Service Continuous Delivery</a>
+              </li>
+              <li>
+                <a>Public Cloud Migration</a>
+              </li>
+              <li>
+                <a>Kubernetes Deployments</a>
+              </li>
+              <li>
+                <a>Scaling Beyond Jenkins Pipelines</a>
+              </li>
+              <li>
+                <a>Spinnaker Not Enough</a>
+              </li>
+              <li>
+                <a>Modern Applications</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a>DevSecOps – Compliance &amp; Governance</a>
+              </li>
+              <li>
+                <a>Cloud Cost Management</a>
+              </li>
+              <li>
+                <a>Kubernetes Deployments</a>
+              </li>
+              <li>
+                <a>GitOps</a>
+              </li>
+              <li>
+                <a>Automation</a>
+              </li>
+              <li>
+                <a>Verification</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   )
 
   const menuCompany = (
     <div className={css.navMenuCompany}>
-    <div className={css.navMenuWrapper}>
-      <ul>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-about.svg" />
-            </div>
-            <div className={css.caption}>Documentation</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-news.svg" />
-            </div>
-            <div className={css.caption}>Press &amp; News</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-partners.svg" />
-            </div>
-            <div className={css.caption}>Partners</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-events.svg" />
-            </div>
-            <div className={css.caption}>Events</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-tshirt.svg" />
-            </div>
-            <div className={css.caption}>T-Shirt Store</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-careers.svg" />
-            </div>
-            <div className={css.caption}>Careers</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-sales.svg" />
-            </div>
-            <div className={css.caption}>Contact Sales</div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div className={css.icon}>
-              <img src="/co-contact.svg" />
-            </div>
-            <div className={css.caption}>Contact HQ</div>
-          </a>
-        </li>
-      </ul>
-    </div>
+      <div className={css.navMenuWrapper}>
+        <ul>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-about.svg" />
+              </div>
+              <div className={css.caption}>Documentation</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-news.svg" />
+              </div>
+              <div className={css.caption}>Press &amp; News</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-partners.svg" />
+              </div>
+              <div className={css.caption}>Partners</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-events.svg" />
+              </div>
+              <div className={css.caption}>Events</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-tshirt.svg" />
+              </div>
+              <div className={css.caption}>T-Shirt Store</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-careers.svg" />
+              </div>
+              <div className={css.caption}>Careers</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-sales.svg" />
+              </div>
+              <div className={css.caption}>Contact Sales</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className={css.icon}>
+                <img src="/co-contact.svg" />
+              </div>
+              <div className={css.caption}>Contact HQ</div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   )
   function handImgLoad(e, imgId) {
@@ -574,18 +582,89 @@ export default function Home() {
                         ></iframe>
                       </div>
                     </div>
+                    {(clientWidth !== 0 && clientWidth < 1440) ? (
+                      <div className={css.introIllustration}>
+                        <LazyLoadImage
+                          src="/harness-intro-mobile-hover.gif"
+                          placeholderSrc="/harness-intro-mobile.svg"
+                          usemap="#introMap"
+                        />
+                        <map name="introMap" id="introMap">
+                          <area
+                            shape="rect"
+                            coords="48,36,185,142"
+                            href="#ci"
+                          />
+                          <area
+                            shape="rect"
+                            coords="227,76,333,176"
+                            href="#cd"
+                          />
+                          <area
+                            shape="rect"
+                            coords="11,211,166,322"
+                            href="#feature-flags"
+                          />
+                          <area
+                            shape="rect"
+                            coords="195,240,370,348"
+                            href="#ch-intel"
+                          />
+                          <area
+                            shape="rect"
+                            coords="40,416,215,536"
+                            href="#cloud-cost"
+                          />
+                        </map>
+                      </div>
+                    ) : (
+                      <div className={css.introIllustration}>
+                        <LazyLoadImage
+                          src="/harness-intro-hover.gif"
+                          placeholderSrc="/harness-intro.svg"
+                          usemap="#introMap"
+                        />
+                        <map name="introMap" id="introMap">
+                          <area
+                            shape="rect"
+                            coords="125,175,285,310"
+                            href="#ci"
+                          />
+                          <area
+                            shape="rect"
+                            coords="327,188,439,315"
+                            href="#cd"
+                          />
+                          <area
+                            shape="rect"
+                            coords="440,41,603,174"
+                            href="#feature-flags"
+                          />
+                          <area
+                            shape="rect"
+                            coords="605,245,731,383"
+                            href="#cloud-cost"
+                          />
+                          <area
+                            shape="rect"
+                            coords="710,46,887,182"
+                            href="#ch-intel"
+                          />
+                        </map>
+                      </div>
+                    )}
                   </div>
                   <div className={cx(css.customers, css.bgDot)}>
                     <div className={css.consumerList}>
-                    <Marquee gradient={false}>
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                      <img src="/customer-logo.svg" />
-                    </Marquee>
+                      <Marquee gradient={false}>
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" />
+                      </Marquee>
                     </div>
                     <div className={css.btnContaner}>
                       <Button className={css.btnLight}>
@@ -656,26 +735,26 @@ export default function Home() {
                     </div>
 
                     <div className={css.bgYellow}>
-                    <div className={css.sectionWRight}>
-                      <div className={css.left}>
-                        {/* <img src="/illus-governance.svg" /> */}
-                        <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['governance']
-                          })}
-                          src="/illus-governance.svg"
-                          afterLoad={e => handImgLoad(e, 'governance')}
-                        />
+                      <div className={css.sectionWRight}>
+                        <div className={css.left}>
+                          {/* <img src="/illus-governance.svg" /> */}
+                          <LazyLoadImage
+                            className={cx({
+                              [css.beforeLoaded]: !imgLoaded['governance']
+                            })}
+                            src="/illus-governance.svg"
+                            afterLoad={e => handImgLoad(e, 'governance')}
+                          />
+                        </div>
+                        <div className={css.right}>
+                          <h3>
+                            {
+                              governaceTitle /*Automated Governance &amp; Guardrails*/
+                            }
+                          </h3>
+                          <div className={css.desc}>{governaceDesc}</div>
+                        </div>
                       </div>
-                      <div className={css.right}>
-                        <h3>
-                          {
-                            governaceTitle /*Automated Governance &amp; Guardrails*/
-                          }
-                        </h3>
-                        <div className={css.desc}>{governaceDesc}</div>
-                      </div>
-                    </div>
                     </div>
 
                     <div className={cx(css.caseStudy, css.bgDot)}>
@@ -684,8 +763,12 @@ export default function Home() {
                           <img src="/quote.svg" />
                         </div>
                         <div className={css.customersSay}>{caseStudy1}</div>
-                        <div className={css.customerName}>{caseStudy1Client}</div>
-                        <Button className={css.btnLight}>Read Case Study</Button>
+                        <div className={css.customerName}>
+                          {caseStudy1Client}
+                        </div>
+                        <Button className={css.btnLight}>
+                          Read Case Study
+                        </Button>
                         {/* <img src="/favicon.png" className={css.profileRight} onLoad={e => handImgLoad(e, '/case-study-profile-1.svg')} /> */}
                         <LazyLoadImage
                           className={
@@ -693,7 +776,7 @@ export default function Home() {
                               ? css.profileRight
                               : css.profileRightBeforeLoaded
                           }
-                          src="/case-study-profile-1.svg" // use normal <img> attributes as props
+                          src="/case-study-profile-1.svg"
                           afterLoad={e => handImgLoad(e, 'p1')}
                         />
                       </div>
@@ -702,7 +785,7 @@ export default function Home() {
                     <div className={css.explore}>
                       <h1>Explore</h1>
                     </div>
-                    <div className={css.sectionWLeft}>
+                    <div className={css.sectionWLeft} id="cd">
                       <div className={css.left}>
                         <h3>{cdTitle /*Continuous Delivery*/}</h3>
                         <h6 className={css.subTitle}>{cdSubTitle}</h6>
@@ -728,7 +811,7 @@ export default function Home() {
                     </div>
                     {/* 111px */}
 
-                    <div className={css.ciSectionWrapper}>
+                    <div className={css.ciSectionWrapper} id="ci">
                       <div className={css.preCI}>
                         {/* <img src="/illus-ci.svg" /> */}
                         <LazyLoadImage
@@ -760,7 +843,10 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className={cx(css.sectionWLeft, css.sectionCloudCost)}>
+                    <div
+                      className={cx(css.sectionWLeft, css.sectionCloudCost)}
+                      id="cloud-cost"
+                    >
                       <div className={css.left}>
                         <h3>{cloudCostTitle /*Cloud Cost Management*/}</h3>
                         <h6 className={css.subTitle}>{cloudCostSubTitle}</h6>
@@ -785,31 +871,33 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className={css.bgYellow}>
-                    <div className={css.sectionExploreWRight}>
-                      <div className={cx(css.left, css.FloatingImg)}>
-                        {/* <img src="/illus-feature-flags.svg" /> */}
-                        <LazyLoadImage
-                          className={cx({
-                            [css.beforeLoaded]: !imgLoaded['flags']
-                          })}
-                          src="/illus-feature-flags.svg"
-                          afterLoad={e => handImgLoad(e, 'flags')}
-                        />
-                        <div className={css.btnContaner}>
-                          <Button>Learn More</Button>
+                    <div className={css.bgYellow} id="feature-flags">
+                      <div className={css.sectionExploreWRight}>
+                        <div className={cx(css.left, css.FloatingImg)}>
+                          {/* <img src="/illus-feature-flags.svg" /> */}
+                          <LazyLoadImage
+                            className={cx({
+                              [css.beforeLoaded]: !imgLoaded['flags']
+                            })}
+                            src="/illus-feature-flags.svg"
+                            afterLoad={e => handImgLoad(e, 'flags')}
+                          />
+                          <div className={css.btnContaner}>
+                            <Button>Learn More</Button>
+                          </div>
+                        </div>
+                        <div className={css.right}>
+                          <h3>{featureFlagsTitle /*Feature Flags*/}</h3>
+                          <h6 className={css.subTitle}>
+                            {featureFlagsSubTitle}
+                          </h6>
+                          <div className={css.desc}>{featureFlagsDesc}</div>
+                          <div className={css.btnContaner}>
+                            <Button type="primary">Try It Out</Button>
+                            <Button>Learn More</Button>
+                          </div>
                         </div>
                       </div>
-                      <div className={css.right}>
-                        <h3>{featureFlagsTitle /*Feature Flags*/}</h3>
-                        <h6 className={css.subTitle}>{featureFlagsSubTitle}</h6>
-                        <div className={css.desc}>{featureFlagsDesc}</div>
-                        <div className={css.btnContaner}>
-                          <Button type="primary">Try It Out</Button>
-                          <Button>Learn More</Button>
-                        </div>
-                      </div>
-                    </div>
                     </div>
 
                     <div
@@ -817,6 +905,7 @@ export default function Home() {
                         css.sectionWLeft,
                         css.sectionChangeIntelligence
                       )}
+                      id="ch-intel"
                     >
                       <div className={css.left}>
                         <h3>{chIntelTitle /*Change Intelligence*/}</h3>
@@ -842,15 +931,18 @@ export default function Home() {
                       </div>
                     </div>
 
-
                     <div className={cx(css.caseStudy, css.bgDotBlue)}>
                       <div className={css.sectionWrapper}>
                         <div className={css.quote}>
                           <img src="/quote.svg" />
                         </div>
                         <div className={css.customersSay}>{caseStudy2}</div>
-                        <div className={css.customerName}>{caseStudy2Client}</div>
-                        <Button className={css.btnLight}>Read Case Study</Button>
+                        <div className={css.customerName}>
+                          {caseStudy2Client}
+                        </div>
+                        <Button className={css.btnLight}>
+                          Read Case Study
+                        </Button>
                         {/* <img src="/favicon.png" className={css.profileLeft} onLoad={e => handImgLoad(e, '/case-study-profile-2.svg')} /> */}
                         <LazyLoadImage
                           className={

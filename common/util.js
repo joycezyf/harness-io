@@ -35,7 +35,6 @@ export function getScrollTop() {
   }
 }
 
-
 // scrollTo
 export function scrollTo(x, y) {
   if (window.scrollTo) {
@@ -44,5 +43,18 @@ export function scrollTo(x, y) {
     document.documentElement.scrollTo(x, y)
   } else if (document.body.scrollTo) {
     document.body.scrollTo(x, y)
+  }
+}
+
+// get client width for most browsers
+export function getClientWidth() {
+  if (window.innerWidth) {
+    return window.innerWidth
+  } else if (document.documentElement.clientWidth) {
+    return document.documentElement.clientWidth
+  } else if (document.body.clientWidth) {
+    return document.body.clientWidth
+  } else {
+    return 0
   }
 }
