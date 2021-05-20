@@ -289,7 +289,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-about.svg" />
+                <img src="/co-about.svg" width="90" height="47" />
               </div>
               <div className={css.caption}>Documentation</div>
             </a>
@@ -297,7 +297,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-news.svg" />
+                <img src="/co-news.svg" width="89" height="61" />
               </div>
               <div className={css.caption}>Press &amp; News</div>
             </a>
@@ -305,7 +305,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-partners.svg" />
+                <img src="/co-partners.svg" width="90" height="27" />
               </div>
               <div className={css.caption}>Partners</div>
             </a>
@@ -313,7 +313,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-events.svg" />
+                <img src="/co-events.svg" width="63" height="86" />
               </div>
               <div className={css.caption}>Events</div>
             </a>
@@ -321,7 +321,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-tshirt.svg" />
+                <img src="/co-tshirt.svg" width="70" height="66" />
               </div>
               <div className={css.caption}>T-Shirt Store</div>
             </a>
@@ -329,7 +329,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-careers.svg" />
+                <img src="/co-careers.svg" width="72" height="69" />
               </div>
               <div className={css.caption}>Careers</div>
             </a>
@@ -337,7 +337,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-sales.svg" />
+                <img src="/co-sales.svg" width="90" height="67" />
               </div>
               <div className={css.caption}>Contact Sales</div>
             </a>
@@ -345,7 +345,7 @@ export default function Home() {
           <li>
             <a>
               <div className={css.icon}>
-                <img src="/co-contact.svg" />
+                <img src="/co-contact.svg" width="81" height="68" />
               </div>
               <div className={css.caption}>Contact HQ</div>
             </a>
@@ -435,7 +435,9 @@ export default function Home() {
               <div className={css.headerNavWrapper}>
                 <div className={css.logo}>
                   {/* <img src="/harness.svg" /> */}
-                  <div className={css.img}></div>
+                  <a href="#">
+                    <div className={css.img}></div>
+                  </a>
                 </div>
                 <div className={css.globalNav}>
                   <a
@@ -498,7 +500,7 @@ export default function Home() {
                 <div className={css.fixedTopHeader}>
                   <div className={css.logoNBtn}>
                     <div className={css.logo}>
-                      <img src="/harness-light.svg" />
+                      <img src="/harness-light.svg" width="146" height="32" />
                     </div>
                     <div className={css.btnClose}>
                       <CloseOutlined onClick={e => switchMoileMenu(e, false)} />
@@ -711,13 +713,13 @@ export default function Home() {
                   <div className={cx(css.customers, css.bgDot)}>
                     <div className={css.consumerList}>
                       <Marquee gradient={false}>
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
-                        <img src="/customer-logo.svg" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
+                        <img src="/customer-logo.svg" width="228" height="64" />
                       </Marquee>
                     </div>
                     <div className={css.btnContaner}>
@@ -1018,7 +1020,7 @@ export default function Home() {
                     <div className={cx(css.caseStudy, css.bgDotBlue)}>
                       <div className={css.sectionWrapper}>
                         <div className={css.quote}>
-                          <img src="/quote.svg" />
+                          <img src="/quote.svg" width="34" height="26" />
                         </div>
                         <div className={css.customersSay}>{caseStudy2}</div>
                         <div className={css.customerName}>
