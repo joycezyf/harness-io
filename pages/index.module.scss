@@ -951,13 +951,13 @@
   .header {
     position: relative;
     display: block;
-    background-color: var(--header-bg);
+    background-color: var(--white);
     // overflow: auto;
     .headerNavWrapper {
       width: var(--full-width);
       margin: 0 auto;
       height: 104px;
-      color: var(--white);
+      color: var(--primary-7);
       display: grid;
       grid-template-columns: 275px 1fr;
       .logo {
@@ -966,7 +966,8 @@
           width: 174px;
           height: 38px;
           overflow: hidden;
-          background: url(/harness.svg);
+          background: url(/harness-light.svg);
+          background-size: cover;
         }
       }
       .globalNav {
@@ -994,14 +995,15 @@
       .dropdown,
       .dropdownSelected,
       a {
-        color: var(--white);
+        color: var(--primary-7);
+        cursor: pointer;
         span[role='img'] {
           margin-left: 8px;
           font-size: 10px;
           transition: 0.3s ease;
         }
         &:hover {
-          color: var(--primary-7);
+          color: var(--primary-5);
         }
       }
       .dropdownSelected {
@@ -1013,7 +1015,7 @@
       }
       .icon {
         font-size: 32px;
-        color: var(--white);
+        color: var(--black);
         // width: 32px;
         // height: 32px;
       }
@@ -1022,9 +1024,9 @@
     .navMenuLearn,
     .navMenuCompany {
       position: absolute;
-      background: var(--header-bg) url(/nav-menu-bg.svg) right bottom no-repeat;
+      background: var(--white) url(/nav-menu-bg-light.svg) right bottom no-repeat;
       // background-size: 20%;
-      border-top: 1px solid #22222a;
+      border-top: 1px solid #f3f3fa;
       height: 340px;
       width: 100%;
       top: 104px;
@@ -1052,7 +1054,7 @@
           letter-spacing: 1.5px;
           text-transform: uppercase;
           /* Gray Scale / Gray Scale 300 */
-          color: var(--gray-300);
+          color: var(--gray-500);
           margin-bottom: 8px;
         }
         .moduleTitle {
@@ -1063,7 +1065,7 @@
           letter-spacing: 0.5px;
           text-transform: capitalize;
           /* Gray Scale / Gray Scale 0 */
-          color: var(--white);
+          color: var(--black);
         }
         .harnessPlatform {
           font-weight: 600;
@@ -1072,7 +1074,7 @@
           /* identical to box height, or 140% */
           text-transform: capitalize;
           /* Gray Scale / Gray Scale 0 */
-          color: var(--white);
+          color: var(--black);
           margin-top: 16px;
         }
         .harnessIntro {
@@ -1083,7 +1085,7 @@
           /* or 133% */
           letter-spacing: -0.01px;
           /* Gray Scale / Gray Scale 400 */
-          color: var(--gray-400);
+          color: var(--gray-500);
           margin-top: 8px;
         }
         ul {
@@ -1124,7 +1126,8 @@
               line-height: 18px;
               /* identical to box height, or 171% */
               /* Gray Scale / Gray Scale 0 */
-              color: var(--white);
+              color: var(--black);
+              cursor: pointer;
               &:hover {
                 color: var(--primary-7);
               }
@@ -1181,7 +1184,7 @@
             /* identical to box height, or 171% */
             text-align: center;
             /* Gray Scale / Gray Scale 0 */
-            color: var(--white);
+            color: var(--black);
             text-align: center;
           }
         }

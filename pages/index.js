@@ -291,7 +291,7 @@ export default function Home() {
               <div className={css.icon}>
                 <img src="/co-about.svg" width="90" height="47" />
               </div>
-              <div className={css.caption}>Documentation</div>
+              <div className={css.caption}>About Us</div>
             </a>
           </li>
           <li>
