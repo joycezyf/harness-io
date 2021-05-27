@@ -1570,7 +1570,7 @@
     //     display: none;
     // }
     .siteMap {
-      width: var(--full-width);
+      // width: var(--full-width);
       margin: 0 auto;
       display: grid;
       grid-template-columns: 261px 261px 261px 261px 261px;
@@ -1599,7 +1599,7 @@
       }
     }
     .logoIcons {
-      width: var(--full-width);
+      // width: var(--full-width);
       margin: 24px auto 0 auto;
       display: grid;
       grid-template-columns: 180px 1fr;
