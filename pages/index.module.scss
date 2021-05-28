@@ -787,6 +787,15 @@
 
 /* ===== desktop: Screen Width >= 1440px ===== */
 @media screen and (min-width: 1440px) {
+  .subMenuMask {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+  }
   .header,
   .main,
   .footer {
@@ -798,6 +807,7 @@
     position: relative;
     display: block;
     background-color: var(--white);
+    z-index: 10;
     // overflow: auto;
     .headerNavWrapper {
       width: var(--full-width);
@@ -806,6 +816,7 @@
       color: var(--black);
       display: grid;
       grid-template-columns: 275px 1fr;
+      z-index: 10;
       .logo {
         padding: 42px 0 0 110px;
         .img {
@@ -1009,13 +1020,15 @@
             margin-bottom: 24px;
             display: block;
             cursor: pointer;
-            img {
-              transition: 0.2s ease;
-            }
+            transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+            // img {
+            //   transition: 0.2s ease;
+            // }
             &:hover {
-              img {
-                transform: rotate(360deg);
-              }
+              transform: translateY(-8px) scale(1.05);
+              // img {
+              //   // transform: rotate(360deg);
+              // }
               .moduleTitle,
               .harnessIntro {
                 color: var(--primary-7);

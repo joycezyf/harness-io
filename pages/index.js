@@ -55,6 +55,13 @@ export default function Home(props) {
       }
     }
   })
+
+  function clearMenus(e) {
+    e.preventDefault()
+    setShowProductMenu(false)
+    setShowCompanyMenu(false)
+    setShowLearnMenu(false)
+  }
   function switchProductMenu(e) {
     e.preventDefault()
     setShowCompanyMenu(false)
@@ -93,6 +100,8 @@ export default function Home(props) {
     }
     setActiveMobileMenu([...active])
   }
+
+  const subMenuMask = <div className={css.subMenuMask} onClick={clearMenus}></div>
 
   const menuProduct = (
     <div className={css.navMenu}>
@@ -1111,6 +1120,7 @@ export default function Home(props) {
           </footer>
         </>
       )}
+      {(showProductMenu  || showLearnMenu || showCompanyMenu) && subMenuMask }
     </>
   )
 }
