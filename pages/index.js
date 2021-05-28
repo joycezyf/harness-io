@@ -98,17 +98,11 @@ export default function Home(props) {
     <div className={css.navMenu}>
       <div className={css.navMenuWrapper}>
         <div className={css.overview}>
-          <div className={css.title}>OVERVIEW</div>
           <img src="/icon-harness.svg" width="64" height="64" />
-          <div className={css.harnessPlatform}>Harness Platform</div>
-          <div className={css.harnessIntro}>
-            A self-service platform solution for every team. The Harness
-            software delivery platform enables software changes of all types to
-            reach production environments in a safe, quick, and sustainable way.
-          </div>
+          <div className={css.moduleTitle}>Harness Platform</div>
+          <div className={css.harnessIntro}>End-to-end Software Delivery</div>
         </div>
         <div className={css.modules}>
-          <div className={css.title}>MODULES</div>
           <ul>
             <li>
               <div>
@@ -117,8 +111,7 @@ export default function Home(props) {
               <div>
                 <div className={css.moduleTitle}>Continuous Delivery</div>
                 <div className={css.harnessIntro}>
-                  Self-Service Continuous Delivery module that enables engineers
-                  to deploy on-demand.
+                  Fast &amp; secure deployment pipelines
                 </div>
               </div>
             </li>
@@ -129,8 +122,7 @@ export default function Home(props) {
               <div>
                 <div className={css.moduleTitle}>Continuous Integration</div>
                 <div className={css.harnessIntro}>
-                  Container-native CI Solution - all builds are isolated, and
-                  all extensions are standardized.
+                  Intelligent build &amp; test
                 </div>
               </div>
             </li>
@@ -141,25 +133,21 @@ export default function Home(props) {
               <div>
                 <div className={css.moduleTitle}>Change Intelligence</div>
                 <div className={css.harnessIntro}>
-                  Keep sane with your change velocity - manage SLOs and error
-                  budgets with ease.
+                  Keep sane with your change velocity
                 </div>
               </div>
             </li>
-          </ul>
+            {/*   </ul>
         </div>
         <div className={css.modulesCol2}>
-          <ul>
+          <ul> */}
             <li>
               <div>
                 <img src="/icon-ff.svg" width="64" height="64" />
               </div>
               <div>
                 <div className={css.moduleTitle}>Feature Flags</div>
-                <div className={css.harnessIntro}>
-                  Empower product development teams to quickly release features,
-                  with minimal risk.
-                </div>
+                <div className={css.harnessIntro}>Manage feature flags</div>
               </div>
             </li>
             <li>
@@ -169,20 +157,7 @@ export default function Home(props) {
               <div>
                 <div className={css.moduleTitle}>Cloud Cost Management</div>
                 <div className={css.harnessIntro}>
-                  Empowers engineers with cloud cost visibility of their apps,
-                  microservices, and clusters.
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <img src="/icon-infra.svg" width="64" height="64" />
-              </div>
-              <div>
-                <div className={css.moduleTitle}>Continuous Infrastructure</div>
-                <div className={css.harnessIntro}>
-                  Manage your infrastructure as code - realized via terraform
-                  scripts or json.
+                  Manage &amp; optimize cloud costs
                 </div>
               </div>
             </li>

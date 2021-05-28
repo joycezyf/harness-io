@@ -108,163 +108,9 @@
     .navMenu,
     .navMenuLearn,
     .navMenuCompany {
-      position: absolute;
-      background: var(--header-bg) url(/nav-menu-bg.svg) right bottom no-repeat;
-      // background-size: 20%;
-      border-top: 1px solid #22222a;
-      height: 340px;
-      width: 100%;
-      top: 104px;
-      left: 0;
-      z-index: 9;
-      box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
-      padding: 24px 0 0 110px;
-      display: grid;
-      grid-template-columns: 380px 400px 1fr;
-      transition: 0.3s ease;
-      .overview,
-      .modules,
-      .modulesCol2,
-      .learn {
-        .title {
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 24px;
-          /* identical to box height, or 171% */
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          /* Gray Scale / Gray Scale 300 */
-          color: var(--gray-300);
-          margin-bottom: 8px;
-        }
-        .moduleTitle {
-          font-weight: 600;
-          font-size: 16px;
-          line-height: 24px;
-          /* identical to box height, or 150% */
-          letter-spacing: 0.5px;
-          text-transform: capitalize;
-          /* Gray Scale / Gray Scale 0 */
-          color: var(--white);
-        }
-        .harnessPlatform {
-          font-weight: 600;
-          font-size: 20px;
-          line-height: 28px;
-          /* identical to box height, or 140% */
-          text-transform: capitalize;
-          /* Gray Scale / Gray Scale 0 */
-          color: var(--white);
-          margin-top: 16px;
-        }
-        .harnessIntro {
-          width: 261px;
-          font-weight: 500;
-          font-size: 12px;
-          line-height: 16px;
-          /* or 133% */
-          letter-spacing: -0.01px;
-          /* Gray Scale / Gray Scale 400 */
-          color: var(--gray-400);
-          margin-top: 8px;
-        }
-        ul {
-          margin: 0;
-          padding: 0;
-          li {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 72px 1fr;
-            margin-bottom: 24px;
-          }
-        }
-        .twoCols {
-          display: grid;
-          grid-template-columns: 261px 261px;
-        }
-      }
-      .overview {
-      }
-      .modules,
-      .modulesCol2 {
-      }
-      .modulesCol2 {
-        padding-top: 32px;
-      }
-      .learn {
-        // width: 365px;
-        .title {
-          margin-bottom: 0;
-        }
-        ul {
-          li {
-            margin: 11px 0;
-            display: block;
-            a {
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 18px;
-              /* identical to box height, or 171% */
-              /* Gray Scale / Gray Scale 0 */
-              color: var(--white);
-              &:hover {
-                color: var(--primary-7);
-              }
-            }
-          }
-        }
-      }
+      display: none;
     }
-    .navMenuLearn {
-      grid-template-columns: 365px 365px 1fr;
-    }
-    .navMenuCompany {
-      display: block;
-      height: 190px;
-      padding-left: 106px;
-      padding-top: 32px;
-      ul {
-        margin: 0;
-        padding: 0;
-        grid-auto-flow: column;
-        grid-auto-columns: 152px;
-        display: grid;
-        li {
-          list-style: none;
-          text-align: center;
-          &:hover {
-            .caption {
-              color: var(--primary-7);
-            }
-            .icon {
-              img {
-                transform: translateY(40px);
-              }
-            }
-          }
-          .icon {
-            // width: 85px;
-            height: 85px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              transition: 0.5s ease-out;
-            }
-          }
-          .caption {
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 24px;
-            /* identical to box height, or 171% */
-            text-align: center;
-            /* Gray Scale / Gray Scale 0 */
-            color: var(--white);
-            text-align: center;
-          }
-        }
-      }
-    }
+
     .mobileSubMenu,
     .mobileSubMenuOff,
     .mobileSubMenuScroll {
@@ -957,7 +803,7 @@
       width: var(--full-width);
       margin: 0 auto;
       height: 104px;
-      color: var(--primary-7);
+      color: var(--black);
       display: grid;
       grid-template-columns: 275px 1fr;
       .logo {
@@ -981,7 +827,7 @@
         /* identical to box height, or 150% */
         letter-spacing: 0.5px;
         text-transform: capitalize;
-        color: #000000;
+        color: var(--black);
         & > * {
           margin-right: 24px;
         }
@@ -995,7 +841,7 @@
       .dropdown,
       .dropdownSelected,
       a {
-        color: var(--primary-7);
+        color: var(--black);
         cursor: pointer;
         span[role='img'] {
           margin-left: 8px;
@@ -1024,7 +870,8 @@
     .navMenuLearn,
     .navMenuCompany {
       position: absolute;
-      background: var(--white) url(/nav-menu-bg-light.svg) right bottom no-repeat;
+      background: var(--white) url(/nav-menu-bg-light.svg) right bottom
+        no-repeat;
       // background-size: 20%;
       border-top: 1px solid #f3f3fa;
       height: 340px;
@@ -1037,10 +884,9 @@
       .navMenuWrapper {
         width: var(--full-width);
         margin: 0 auto;
-
-        padding: 24px 0 0 110px;
+        padding: 32px 0 0 110px;
         display: grid;
-        grid-template-columns: 380px 400px 1fr;
+        grid-template-columns: 365px 365px 1fr;
       }
       .overview,
       .modules,
@@ -1059,8 +905,8 @@
         }
         .moduleTitle {
           font-weight: 600;
-          font-size: 16px;
-          line-height: 24px;
+          font-size: 14px;
+          line-height: 20px;
           /* identical to box height, or 150% */
           letter-spacing: 0.5px;
           text-transform: capitalize;
@@ -1078,7 +924,7 @@
           margin-top: 16px;
         }
         .harnessIntro {
-          width: 261px;
+          // width: 261px;
           font-weight: 500;
           font-size: 12px;
           line-height: 16px;
@@ -1104,6 +950,7 @@
         }
       }
       .overview {
+        text-align: center;
       }
       .modules,
       .modulesCol2 {
@@ -1118,7 +965,7 @@
         }
         ul {
           li {
-            margin: 11px 0;
+            margin: 12px 0;
             display: block;
             a {
               font-weight: 500;
@@ -1133,6 +980,58 @@
               }
             }
           }
+        }
+      }
+    }
+    .navMenu {
+      height: 212px;
+      background: var(--white) url(/motion-path-product-menu.svg) no-repeat
+        center bottom;
+      background-size: contain;
+
+      .navMenuWrapper {
+        padding: 36px 32px 48px 32px;
+        grid-template-columns: 224px 1fr;
+        grid-gap: 32px;
+      }
+      .overview,
+      .modules,
+      .modulesCol2,
+      .learn {
+        img {
+          transition: 0.2s ease;
+        }
+        ul {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          li {
+            text-align: center;
+            margin-bottom: 24px;
+            display: block;
+            cursor: pointer;
+            img {
+              transition: 0.2s ease;
+            }
+            &:hover {
+              img {
+                transform: rotate(360deg);
+              }
+              .moduleTitle,
+              .harnessIntro {
+                color: var(--primary-7);
+              }
+            }
+          }
+        }
+      }
+      .overview:hover {
+        cursor: pointer;
+        img {
+          transform: rotate(360deg);
+        }
+        .moduleTitle,
+        .harnessIntro {
+          color: var(--primary-7);
         }
       }
     }
@@ -1152,7 +1051,7 @@
         margin: 0;
         padding: 0;
         grid-auto-flow: column;
-        grid-auto-columns: 152px;
+        grid-auto-columns: 164px;
         display: grid;
         li {
           list-style: none;
