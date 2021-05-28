@@ -670,8 +670,9 @@ export default function Home(props) {
               ) : (
                 <div className={css.introIllustration}>
                   <video
-                    width="961"
-                    src="/harness-intro-hover.mp4"
+                    width="960"
+                    heiht="452"
+                    src="/harness-hero-hover.mp4"
                     muted={true}
                     autoPlay={true}
                     loop={true}

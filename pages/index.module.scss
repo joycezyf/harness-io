@@ -1198,6 +1198,7 @@
 
   .main {
     background: var(--white);
+    overflow-x: hidden;
     .harnessIntro {
       width: var(--full-width);
       margin: 0 auto;
@@ -1258,8 +1259,8 @@
         .linkCloudCost,
         .linkChIntel {
           position: absolute;
-          left: 327px;
-          top: 188px;
+          // left: 327px;
+          // top: 188px;
           width: 120px;
           height: 160px;
           cursor: pointer;
@@ -1270,24 +1271,24 @@
           }
         }
         .linkCI {
-          left: 125px;
-          top: 180px;
+          left: 112px;
+          top: 212px;
         }
         .linkCD {
-          left: 327px;
-          top: 188px;
+          left: 331px;
+          top: 199px;
         }
         .linkFeatureFlags {
           left: 455px;
-          top: 45px;
+          top: 33px;
         }
         .linkCloudCost {
-          left: 610px;
-          top: 250px;
+          left: 607px;
+          top: 219px;
         }
         .linkChIntel {
-          left: 750px;
-          top: 50px;
+          left: 717px;
+          top: 39px;
         }
       }
       // &:hover {
