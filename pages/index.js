@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import { Button, Collapse } from 'antd'
 import {
   GithubOutlined,
@@ -101,7 +102,9 @@ export default function Home(props) {
     setActiveMobileMenu([...active])
   }
 
-  const subMenuMask = <div className={css.subMenuMask} onClick={clearMenus}></div>
+  const subMenuMask = (
+    <div className={css.subMenuMask} onClick={clearMenus}></div>
+  )
 
   const menuProduct = (
     <div className={css.navMenu}>
@@ -125,15 +128,21 @@ export default function Home(props) {
               </div>
             </li>
             <li>
-              <div>
-                <img src="/icon-ci.svg" width="64" height="64" />
-              </div>
-              <div>
-                <div className={css.moduleTitle}>Continuous Integration</div>
-                <div className={css.harnessIntro}>
-                  Intelligent build &amp; test
-                </div>
-              </div>
+              <Link href="/products">
+                <a>
+                  <div>
+                    <img src="/icon-ci.svg" width="64" height="64" />
+                  </div>
+                  <div>
+                    <div className={css.moduleTitle}>
+                      Continuous Integration
+                    </div>
+                    <div className={css.harnessIntro}>
+                      Intelligent build &amp; test
+                    </div>
+                  </div>
+                </a>
+              </Link>
             </li>
             <li>
               <div>
@@ -1120,7 +1129,7 @@ export default function Home(props) {
           </footer>
         </>
       )}
-      {(showProductMenu  || showLearnMenu || showCompanyMenu) && subMenuMask }
+      {(showProductMenu || showLearnMenu || showCompanyMenu) && subMenuMask}
     </>
   )
 }

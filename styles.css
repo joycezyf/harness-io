@@ -204,8 +204,14 @@ h6 {
   --page-bg: #f8fcff;
   --header-bg: #1a1a1a;
 
+  --ci-theme-bg: #EFF9FF; /* rgba(239, 249, 255, 1); */
+
   --width-desktop: 1440px;
   --width-mobile: 375px;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {

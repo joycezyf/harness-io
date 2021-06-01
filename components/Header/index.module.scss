@@ -1123,7 +1123,7 @@
       .introTextContainer {
         width: 500px;
         flex-shrink: 0;
-        z-index: 7;
+        z-index: 9;
         .introText {
           font-size: 56px;
           line-height: 68px;
@@ -1259,7 +1259,7 @@
     .customers {
       padding: 48px 24px;
       .consumerList {
-        // width: var(--full-width);
+        width: var(--full-width);
         margin: 0 auto;
       }
       .btnContaner {
