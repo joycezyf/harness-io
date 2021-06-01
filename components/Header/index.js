@@ -30,7 +30,7 @@ import css from './index.module.scss'
 
 const { Panel } = Collapse
 
-export default function Header(props) {
+export default function Header() {
   const [imgLoaded, setImgLoaded] = useState({})
   const [showProductMenu, setShowProductMenu] = useState(false)
   const [showCompanyMenu, setShowCompanyMenu] = useState(false)
@@ -356,75 +356,6 @@ export default function Header(props) {
     )
   }
 
-  const {
-    // loading,
-    error,
-    data: {
-      marketingSite: {
-        heroTitle = 'The Modern Software Delivery Platform',
-        heroSubTitle = `Loved by Developers
-        Trusted by Businesses`,
-        piplineTitle,
-        pipelineDesc,
-        developerTitle,
-        developerDesc,
-        aiTitle,
-        aiDesc,
-        governaceTitle,
-        governaceDesc,
-        cdTitle,
-        cdSubTitle,
-        cdDesc,
-        ciTitle,
-        ciSubTitle,
-        ciDesc,
-        cloudCostTitle,
-        cloudCostSubTitle,
-        cloudCostDesc,
-        featureFlagsTitle,
-        featureFlagsSubTitle,
-        featureFlagsDesc,
-        chIntelTitle,
-        chIntelSubTitle,
-        chIntelDesc,
-        caseStudy1,
-        caseStudy1Client,
-        caseStudy2,
-        caseStudy2Client
-      } = {}
-    } = {}
-  } = props
-  if (error) {
-    return (
-      <div className="container">
-        <img src="/harness-light.svg" />
-        <h3>Ooooops! Something goes wrong...</h3>
-        <div className="link">
-          <Link href="/">
-            <a>Head back to our Homepage</a>
-          </Link>
-        </div>
-        <style jsx>{`
-          .container {
-            min-height: 100vh;
-            padding: 0 0.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-          h3 {
-            margin: 36px;
-          }
-          .link {
-            font-size: 18px;
-            font-weight: 600;
-          }
-        `}</style>
-      </div>
-    )
-  }
-
   const isMobile = clientWidth > 0 && clientWidth < 1440
   return (
     <>
@@ -588,9 +519,3 @@ export default function Header(props) {
   )
 }
 
-export async function getStaticProps(context) {
-  const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
-  return {
-    props: res // will be passed to the page component as props
-  }
-}

@@ -665,7 +665,7 @@ export default function Home(props) {
                   <video
                     width="960"
                     heiht="452"
-                    src="/harness-hero-hover.mp4"
+                    src="/harness-hero-hover-2.mp4"
                     muted={true}
                     autoPlay={true}
                     loop={true}

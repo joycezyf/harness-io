@@ -14,7 +14,7 @@
         <path d="M28.8599 10.6728L27.1718 13.4044M33.7264 11.3713C33.1609 12.2862 32.5982 13.1968 32.0382 14.1029L33.7264 11.3713ZM31.356 10.6346C30.6467 11.7824 29.9433 12.9204 29.2458 14.049L31.356 10.6346Z" stroke="#B0B1C4" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M36.5557 11.8446L35.0785 14.2348M38.6297 12.4893C38.1344 13.2907 37.642 14.0874 37.1526 14.8794L38.6297 12.4893ZM41.282 12.7697C40.9055 13.379 40.5301 13.9864 40.1559 14.5918L41.282 12.7697Z" stroke="#B0B1C4" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M43.8516 13.2979L43.0075 14.6636" stroke="#B0B1C4" stroke-linecap="round" stroke-linejoin="round"/>
-        <animateMotion dur="20s" repeatCount="indefinite" rotate="auto" direction="reverse">
+        <animateMotion dur="3s" repeatCount="indefinite" rotate="auto" direction="reverse">
             <mpath xlink:href="#planePath" />
         </animateMotion>
     </g>
