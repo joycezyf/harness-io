@@ -429,7 +429,7 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Marketing site mockup</title>
+        <title>Harness - Self-Service CI/CD Tool for DevOps Teams &amp; Engineers</title>
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
