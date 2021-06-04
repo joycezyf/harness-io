@@ -778,7 +778,8 @@
           border-radius: 4px;
           box-shadow: 0 -1px 4px 0 rgba(96, 97, 112, 0.16);
           // background-color: #CDD3DD;
-          th, td {
+          th,
+          td {
             // background-color: var(--white);
             width: 26%;
             padding: 16px 24px;
@@ -812,13 +813,13 @@
               display: block;
               margin: 16px auto;
             }
-            svg[data-icon=check-circle] {
-              color: #FF3B3B;
+            svg[data-icon='check-circle'] {
+              color: #ff3b3b;
               width: 18px;
               height: 18px;
             }
-            svg[data-icon=close-circle] {
-              color: #06C270;
+            svg[data-icon='close-circle'] {
+              color: #06c270;
               width: 18px;
               height: 18px;
             }

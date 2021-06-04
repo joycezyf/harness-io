@@ -2,7 +2,7 @@ Harness.io marketing site POC.
 
 ## Install Node.js
 ```
-$ brew install node@14.16
+$ brew install node
 ```
 
 ## Install yarn package manager
