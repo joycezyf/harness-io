@@ -10,7 +10,8 @@
 
   .main {
     background: var(--white);
-    .harnessIntro {
+    .harnessIntro,
+    .harnessIntroCD {
       padding: 80px 0 0 0;
       // background: url(/harness-intro-mobile.svg) bottom no-repeat;
       // min-height: 1100px;
@@ -248,7 +249,8 @@
       text-align: left;
       padding: 36px 0px 0px 16px;
     }
-    .motionPathContainer {
+    .ciContainer,
+    .cdContainer {
       position: relative;
       .motionPathContent {
         // position: absolute;
@@ -256,6 +258,23 @@
         // right: 0;
         // width: 100%;
         display: none;
+      }
+      .productFeatures {
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            .subIcon {
+              background-color: var(--ci-theme-bg);
+            }
+          }
+        }
+      }
+      .sectionIntegrations {
+        background-color: var(--ci-theme-bg);
       }
       .sectionWLeft,
       .sectionWRight,
@@ -414,6 +433,20 @@
         }
       }
     }
+    .cdContainer {
+      .productFeatures {
+        ul {
+          li {
+            .subIcon {
+              background-color: var(--cd-theme-bg);
+            }
+          }
+        }
+      }
+      .sectionIntegrations {
+        background-color: var(--cd-theme-bg);
+      }
+    }
   }
 }
 
@@ -439,7 +472,8 @@
   .main {
     background: var(--white);
     overflow-x: hidden;
-    .harnessIntro {
+    .harnessIntro,
+    .harnessIntroCD {
       width: var(--full-width);
       margin: 0 auto;
       padding: 96px 0 62px 110px;
@@ -505,6 +539,9 @@
         //   width: 911px;
         // }
       }
+    }
+    .harnessIntroCD {
+      background: url(/prod-cd-illus.svg) right bottom no-repeat;
     }
 
     .btnLight {
@@ -636,7 +673,8 @@
       text-align: center;
       padding-top: 110px;
     }
-    .motionPathContainer {
+    .ciContainer,
+    .cdContainer {
       .subTitle {
         margin-top: 16px;
       }
@@ -688,6 +726,9 @@
               justify-content: center;
               align-items: center;
               background-color: var(--ci-theme-bg);
+              img, svg, path {
+                color: var(--ci-theme-color);
+              }
             }
             .subTitle {
               font-weight: 600;
@@ -832,6 +873,20 @@
             }
           }
         }
+      }
+    }
+    .cdContainer {
+      .productFeatures {
+        ul {
+          li {
+            .subIcon {
+              background-color: var(--cd-theme-bg);
+            }
+          }
+        }
+      }
+      .sectionIntegrations {
+        background-color: var(--cd-theme-bg);
       }
     }
   }

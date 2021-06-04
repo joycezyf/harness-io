@@ -205,6 +205,12 @@ h6 {
   --header-bg: #1a1a1a;
 
   --ci-theme-bg: #eff9ff; /* rgba(239, 249, 255, 1); */
+  --cd-theme-bg: #EDFFEA;
+  --cloud-cost-theme-bg: #DCFFFA;
+  --feature-flags-theme-bg: #FFEFE4;
+  --ch-intel-theme-bg: #F6F1FF;
+  --ci-theme-color: #A4CDF8;
+  --cd-theme-color: #6FD43F;
 
   --width-desktop: 1440px;
   --width-mobile: 375px;

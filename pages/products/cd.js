@@ -20,7 +20,7 @@ import Error from '../../components/Error'
 
 import css from './products.module.scss'
 
-const ProductCI = (props) => {
+const ProductCD = (props) => {
   const [imgLoaded, setImgLoaded] = useState({})
   const [clientWidth, setClientWidth] = useState(0)
 
@@ -81,21 +81,19 @@ const ProductCI = (props) => {
       <Header />
       <>
         <main className={css.main}>
-          <div className={css.harnessIntro}>
+          <div className={css.harnessIntroCD}>
             <div className={css.introTextContainer}>
-              <div className={css.introText}>Continuous Integration</div>
+              <div className={css.introText}>Continuous Delivery</div>
               <div
                 className={css.introSubText}
                 // dangerouslySetInnerHTML={{
                 //   __html: heroSubTitle.replace(/\n/g, '<br />')
                 // }}
               >
-                Take Source Code To Artifact
+                Blazing Fast Deployment Pipelines in Minutes
               </div>
               <div className={css.introDesc}>
-                Harness CI (formerly Drone) is a self-service CI solution that
-                is container-native so all builds are isolated, and all
-                extensions are standardized. Kiss your butler goodbye.
+              Self-Service Continuous Delivery that enables engineers to deploy on-demand without a single script.
               </div>
               <Button type="primary" className={css.btnSignUp}>
                 Sign Up for Free
@@ -113,7 +111,7 @@ const ProductCI = (props) => {
             </div>
             <div className={css.introIllustration}>
               <img
-                src="/product-video-placeholder.svg"
+                src="/product-cd-video-placeholder.svg"
                 width="650"
                 height="374"
                 // muted={true}
@@ -139,7 +137,7 @@ const ProductCI = (props) => {
             </div>
           </div>
 
-          <div className={css.ciContainer}>
+          <div className={css.cdContainer}>
             <div className={css.productFeatures}>
               <h3 className={css.title}>Features Every Great Team Needs</h3>
               <ul>
@@ -408,7 +406,7 @@ const ProductCI = (props) => {
                       ? css.profileRight
                       : css.profileRightBeforeLoaded
                   }
-                  src="/case-study-profile-3.svg"
+                  src="/case-study-profile-5.svg"
                   placeholderSrc="/favicon.png"
                   afterLoad={e => handleImgLoad(e, 'p1')}
                   width="236"
@@ -533,7 +531,7 @@ const ProductCI = (props) => {
                   className={
                     imgLoaded.p2 ? css.profileLeft : css.profileLeftBeforeLoaded
                   }
-                  src="/case-study-profile-4.svg"
+                  src="/case-study-profile-6.svg"
                   placeholderSrc="/favicon.png"
                   afterLoad={e => handleImgLoad(e, 'p2')}
                   width="313"
@@ -557,4 +555,4 @@ export async function getStaticProps(context) {
   }
 }
 
-export default ProductCI
+export default ProductCD

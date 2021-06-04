@@ -126,15 +126,19 @@ const Header = () => {
         <div className={css.modules}>
           <ul>
             <li>
-              <div>
-                <img src="/icon-cd.svg" width="64" height="64" />
-              </div>
-              <div>
-                <div className={css.moduleTitle}>Continuous Delivery</div>
-                <div className={css.harnessIntro}>
-                  Fast &amp; secure deployment pipelines
-                </div>
-              </div>
+              <Link href="/products/cd">
+                <a>
+                  <div>
+                    <img src="/icon-cd.svg" width="64" height="64" />
+                  </div>
+                  <div>
+                    <div className={css.moduleTitle}>Continuous Delivery</div>
+                    <div className={css.harnessIntro}>
+                      Fast &amp; secure deployment pipelines
+                    </div>
+                  </div>
+                </a>
+              </Link>
             </li>
             <li>
               <Link href="/products/ci">
@@ -152,17 +156,6 @@ const Header = () => {
                   </div>
                 </a>
               </Link>
-            </li>
-            <li>
-              <div>
-                <img src="/icon-ch-intel.svg" width="64" height="64" />
-              </div>
-              <div>
-                <div className={css.moduleTitle}>Change Intelligence</div>
-                <div className={css.harnessIntro}>
-                  Keep sane with your change velocity
-                </div>
-              </div>
             </li>
             {/*   </ul>
           </div>
@@ -185,6 +178,17 @@ const Header = () => {
                 <div className={css.moduleTitle}>Cloud Cost Management</div>
                 <div className={css.harnessIntro}>
                   Manage &amp; optimize cloud costs
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/icon-ch-intel.svg" width="64" height="64" />
+              </div>
+              <div>
+                <div className={css.moduleTitle}>Change Intelligence</div>
+                <div className={css.harnessIntro}>
+                  Keep sane with your change velocity
                 </div>
               </div>
             </li>
@@ -470,7 +474,11 @@ const Header = () => {
                       <a>Continuous Integration</a>
                     </Link>
                   </li>
-                  <li>Continuous Delivery</li>
+                  <li>
+                    <Link href="/products/cd">
+                      <a>Continuous Delivery</a>
+                    </Link>
+                  </li>
                   <li>Cloud Cost Management</li>
                   <li>Feature Flags</li>
                   <li>Change Intelligence</li>
