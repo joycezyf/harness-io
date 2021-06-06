@@ -13,14 +13,14 @@ import {
 } from '../common/util'
 import client from '../common/apollo-client-ref'
 
-import css from './index.module.scss'
+import css from './index.module.scss' // '../styles/index.module.scss'
 
 // Components
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Error from '../components/Error'
 
-export default function Home(props) {
+const Home = props => {
   const [imgLoaded, setImgLoaded] = useState({})
   // const [scrollTop, setScrollTop] = useState(0)
   const [clientWidth, setClientWidth] = useState(0)
@@ -43,7 +43,7 @@ export default function Home(props) {
     }
   }, [])
 
-  function handleResize(e) {
+  const handleResize = e => {
     // const rawScrollTop = getScrollTop()
     const rawClientWidth = getClientWidth()
     // setScrollTop(rawScrollTop)
@@ -51,7 +51,7 @@ export default function Home(props) {
   }
   const debounceResize = debounce(handleResize, 600)
 
-  function handleImgLoad(e, imgId) {
+  const handleImgLoad = (e, imgId) => {
     setTimeout(
       () =>
         setImgLoaded(loaded => Object.assign({}, loaded, { [imgId]: true })),
@@ -223,7 +223,8 @@ export default function Home(props) {
           {/* <img src="/motion-path.svg" className={css.motionPathContent} /> */}
           <div className={css.motionPathContent}>
             <img
-              src="/motion-path-woball.svg"
+              src="/motion-path-woball-2.svg"
+              width="1198" height="5601"
               // className={css.motionPathContent}
             />
           </div>
@@ -234,10 +235,9 @@ export default function Home(props) {
             </div>
             <div className={css.right}>
               <LazyLoadImage
-                src="/illus-pipline.svg"
+                src="/illus-pipline-2.svg"
                 placeholderSrc="/favicon.png"
-                width="825"
-                height="356"
+                width="770" height="375"
               />
             </div>
           </div>
@@ -479,3 +479,5 @@ export async function getStaticProps(context) {
     props: res // will be passed to the page component as props
   }
 }
+
+export default Home

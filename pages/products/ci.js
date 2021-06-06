@@ -549,7 +549,7 @@ const ProductCI = (props) => {
   )
 }
 
-/* getStaticProps */
+/* getStaticProps, TBD... */
 export async function getStaticProps(context) {
   const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
   return {
