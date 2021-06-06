@@ -122,6 +122,10 @@ const Header = () => {
           <Link href="/products/platform">
             <a>
               <img src="/icon-harness.svg" width="64" height="64" />
+            </a>
+          </Link>
+          <Link href="/products/platform">
+            <a>
               <div className={css.moduleTitle}>Harness Platform</div>
               <div className={css.harnessIntro}>
                 End-to-end Software Delivery
@@ -132,11 +136,15 @@ const Header = () => {
         <div className={css.modules}>
           <ul>
             <li>
+              <div>
+                <Link href="/products/cd">
+                  <a>
+                    <img src="/icon-cd.svg" width="64" height="64" />
+                  </a>
+                </Link>
+              </div>
               <Link href="/products/cd">
                 <a>
-                  <div>
-                    <img src="/icon-cd.svg" width="64" height="64" />
-                  </div>
                   <div>
                     <div className={css.moduleTitle}>Continuous Delivery</div>
                     <div className={css.harnessIntro}>
@@ -147,11 +155,15 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <div>
+                <Link href="/products/ci">
+                  <a>
+                    <img src="/icon-ci.svg" width="64" height="64" />
+                  </a>
+                </Link>
+              </div>
               <Link href="/products/ci">
                 <a>
-                  <div>
-                    <img src="/icon-ci.svg" width="64" height="64" />
-                  </div>
                   <div>
                     <div className={css.moduleTitle}>
                       Continuous Integration
@@ -163,16 +175,17 @@ const Header = () => {
                 </a>
               </Link>
             </li>
-            {/*   </ul>
-          </div>
-          <div className={css.modulesCol2}>
-            <ul> */}
+
             <li>
+              <div>
+                <Link href="/products/feature-flags">
+                  <a>
+                    <img src="/icon-ff.svg" width="64" height="64" />
+                  </a>
+                </Link>
+              </div>
               <Link href="/products/feature-flags">
                 <a>
-                  <div>
-                    <img src="/icon-ff.svg" width="64" height="64" />
-                  </div>
                   <div>
                     <div className={css.moduleTitle}>Feature Flags</div>
                     <div className={css.harnessIntro}>Manage feature flags</div>
@@ -181,11 +194,15 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <div>
+                <Link href="/products/cloud-cost">
+                  <a>
+                    <img src="/icon-ccm.svg" width="64" height="64" />
+                  </a>
+                </Link>
+              </div>
               <Link href="/products/cloud-cost">
                 <a>
-                  <div>
-                    <img src="/icon-ccm.svg" width="64" height="64" />
-                  </div>
                   <div>
                     <div className={css.moduleTitle}>Cloud Cost Management</div>
                     <div className={css.harnessIntro}>
@@ -196,11 +213,15 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <div>
+                <Link href="/products/ch-intel">
+                  <a>
+                    <img src="/icon-ch-intel.svg" width="64" height="64" />
+                  </a>
+                </Link>
+              </div>
               <Link href="/products/ch-intel">
                 <a>
-                  <div>
-                    <img src="/icon-ch-intel.svg" width="64" height="64" />
-                  </div>
                   <div>
                     <div className={css.moduleTitle}>Change Intelligence</div>
                     <div className={css.harnessIntro}>
