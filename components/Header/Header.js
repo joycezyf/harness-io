@@ -449,7 +449,7 @@ const Header = () => {
               <DownOutlined />
             </a>
             <a>Pricing</a>
-            <a>Customers</a>
+            <Link href="/customers"><a>Customers</a></Link>
             <a
               className={showCompanyMenu ? css.dropdownSelected : css.dropdown}
               onClick={switchCompanyMenu}

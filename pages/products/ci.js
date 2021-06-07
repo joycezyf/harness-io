@@ -121,6 +121,7 @@ const ProductCI = props => {
             />
           </div>
         </div>
+
         <div className={cx(css.customers, css.bgDot)}>
           <div className={css.consumerList}>
             <Marquee gradient={false}>
