@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Modal } from 'antd'
+import { Button } from 'antd'
 import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons'
 import Marquee from 'react-fast-marquee'
 import cx from 'classnames'
@@ -18,8 +18,8 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import 'antd/lib/modal/style/index.css'
-import css from './careers.module.scss'
+// import 'antd/lib/modal/style/index.css'
+import css from './about.module.scss'
 
 const CompanyCareers = props => {
   const [imgLoaded, setImgLoaded] = useState({})
@@ -94,6 +94,157 @@ const CompanyCareers = props => {
     <>
       <Header />
       <main className={css.main}>
+        <div className={css.harnessIntro}>
+          <div className={css.introTextContainer}>
+            <div className={css.introText}>We’re Harness</div>
+            {/*
+            <div
+              className={css.introSubText}
+            >
+              You are in great company
+            </div>
+            */}
+            <div className={css.introDesc}>
+              Our mission is to enable every software engineering team in the
+              world to deliver code reliably, efficiently and quickly to their
+              users.
+            </div>
+          </div>
+          <div className={css.awards}>
+            <div className={css.awardItem}>to be replaced by an award</div>
+
+            <div className={css.awardItem}>
+              Fastest growing DevOps companies of all time
+            </div>
+
+            <div className={css.awardItem}>
+              <img src="/co-about-award-linkedin.svg" width="123" height="32" />
+              <div>Top Startups 2020</div>
+            </div>
+
+            <div className={css.awardItem}>
+              <img src="/co-about-award-glassdoor.svg" width="137" height="44" />
+              <div>2021 Best Places to Work</div>
+            </div>
+          </div>
+        </div>
+
+        <div className={cx(css.executiveContainer, css.bgDot)}>
+          <div className={css.executive}>
+            <h3 className={css.title}>Our Executive Team</h3>
+            <ul>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-jyoti.svg"
+                    width="283"
+                    height="246"
+                    alt="Jyoti Bansal"
+                  />
+                </div>
+                <h5 className={css.name}>Jyoti Bansal</h5>
+                <div className={css.position}>Co-Founder &amp; CEO</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-rishi.svg"
+                    width="283"
+                    height="246"
+                    alt="Rishi Singh"
+                  />
+                </div>
+                <h5 className={css.name}>Rishi Singh</h5>
+                <div className={css.position}>Co-Founder &amp; CTO</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-jason.svg"
+                    width="283"
+                    height="246"
+                    alt="Jason Eubanks"
+                  />
+                </div>
+                <h5 className={css.name}>Jason Eubanks</h5>
+                <div className={css.position}>CRO</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-john.svg"
+                    width="283"
+                    height="246"
+                    alt="John Bonney"
+                  />
+                </div>
+                <h5 className={css.name}>John Bonney</h5>
+                <div className={css.position}>CFO</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-jill.svg"
+                    width="283"
+                    height="246"
+                    alt="Jill Passalacqua"
+                  />
+                </div>
+                <h5 className={css.name}>Jill Passalacqua</h5>
+                <div className={css.position}>Chief Counsel</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-steve.svg"
+                    width="283"
+                    height="246"
+                    alt="Steve Burton"
+                  />
+                </div>
+                <h5 className={css.name}>Steve Burton</h5>
+                <div className={css.position}>CMO</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-hemant.svg"
+                    width="283"
+                    height="246"
+                    alt="Hemant Khandelwal"
+                  />
+                </div>
+                <h5 className={css.name}>Hemant Khandelwal</h5>
+                <div className={css.position}>Head of Engineering</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-sri.svg"
+                    width="283"
+                    height="246"
+                    alt="Sri Ramalingam"
+                  />
+                </div>
+                <h5 className={css.name}>Sri Ramalingam</h5>
+                <div className={css.position}>SVP of Engineering</div>
+              </li>
+              <li>
+                <div className={css.pic}>
+                  <img
+                    src="/co-about-exec-luan.svg"
+                    width="283"
+                    height="246"
+                    alt="Luan Lam"
+                  />
+                </div>
+                <h5 className={css.name}>Luan Lam</h5>
+                <div className={css.position}>VP of Talent</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div className={css.joinTheTeam}>
           <img
             src="/co-career-team-1.svg"
@@ -145,12 +296,12 @@ const CompanyCareers = props => {
             height="330"
           />
           <LazyLoadImage
-            src="/co-career-why-harness.svg"
+            src="/co-about-team-1.svg"
             placeholderSrc="/favicon.png"
             className={css.teamImgWhyHarness}
-            width="607"
-            height="538"
-            onClick={showModal}
+            width="552"
+            height="466"
+            // onClick={showModal}
           />
           <div className={css.textContainer}>
             <h3 className={css.title}>Join the Team!</h3>
@@ -164,7 +315,7 @@ const CompanyCareers = props => {
             </div>
           </div>
         </div>
-        {isModalVisible && (
+        {/*isModalVisible && (
           <Modal
             title={null}
             visible={isModalVisible}
@@ -189,7 +340,7 @@ const CompanyCareers = props => {
               allowfullscreen
             ></iframe>
           </Modal>
-        )}
+        )*/}
 
         <div className={cx(css.valuesContainer, css.bgDot)}>
           <div className={css.productFeatures}>
@@ -308,231 +459,72 @@ const CompanyCareers = props => {
           </div>
         </div>
 
-        <div className={cx(css.section2Col, css.bgYellow)}>
+        <div className={cx(css.sectionInvestors, css.bgDotBlue)}>
           <div className={css.inner}>
-            <div className={css.text}>
-              <h3 className={css.title}>Diversity &amp; Belonging</h3>
-              <div className={css.desc}>
-                We have created a workplace that is inclusive of everyone. Being
-                yourself is not only embraced but celebrated at Harness, and all
-                backgrounds can thrive.
-              </div>
+            <h3 className={css.title}>Investors</h3>
+            <div className={css.desc}>
+              Harness was spun out of BIG Labs, a startup studio designed to
+              solve hard technology problems and build enduring companies.
+              Harness has raised $195M of venture capital from top-tier
+              investors.
             </div>
-            <div className={css.img}>
-              <LazyLoadImage
-                src="/co-career-diversity.svg"
-                placeholderSrc="/favicon.png"
-                width="657"
-                height="650"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className={css.section2Col}>
-          <div className={css.inner}>
-            <div className={css.img}>
-              <LazyLoadImage
-                src="/co-career-women.svg"
-                placeholderSrc="/favicon.png"
-                width="636"
-                height="643"
-              />
-            </div>
-            <div className={css.text}>
-              <h3 className={css.title}>Women at Harness</h3>
-              <div className={css.desc}>
-                We believe that women bring invaluable qualities into the
-                workplace: communication styles, thought processes,
-                problem-solving approaches, and creativity channels. We strive
-                to foster a female friendly work environment that will attract
-                and retain the best women in the workforce.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={cx(css.section2Col, css.bgOrange)}>
-          <div className={css.inner}>
-            <div className={css.text}>
-              <h3 className={css.title}>Pride in Tech</h3>
-              <div className={css.desc}>
-                In the efforts of building a diverse workforce, we stand strong
-                with the LGBTQ community and advocating for LGBTQ rights. We are
-                committed to provide a safe, accepting and welcoming workplace.
-              </div>
-            </div>
-            <div className={css.img}>
-              <LazyLoadImage
-                src="/co-career-tech.svg"
-                placeholderSrc="/favicon.png"
-                width="670"
-                height="629"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className={cx(css.sectionBenefits, css.bgDot)}>
-          <div className={css.inner}>
-            <h3 className={css.title}>Benefits &amp; Perks</h3>
-            <ul className={css.benefitList}>
+            {/*
+            <ul className={css.investorList}>
               <li>
-                <img
-                  src="/co-career-benefits-competitive-salary.svg"
-                  width="80"
-                  height="80"
-                  alt="Competitive Salary"
-                />
+                <img />
                 <span className={css.caption}>Competitive Salary</span>
               </li>
-              <li>
-                <img
-                  src="/co-career-benefits-comprehensive-healthcare-benefits.svg"
-                  width="80"
-                  height="80"
-                  alt="Comprehensive Healthcare Benefits"
-                />
-                <span className={css.caption}>
-                  Comprehensive Healthcare Benefits
-                </span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-fsa.svg"
-                  width="80"
-                  height="80"
-                  alt="Flexible Spending Account (FSA)"
-                />
-                <span className={css.caption}>
-                  Flexible Spending Account (FSA)
-                </span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-computer-benefits.svg"
-                  width="80"
-                  height="80"
-                  alt="Computer Benefits"
-                />
-                <span className={css.caption}>Computer Benefits</span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-employee-referral-bonus.svg"
-                  width="80"
-                  height="80"
-                  alt="Employee Referral Bonus"
-                />
-                <span className={css.caption}>Employee Referral Bonus</span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-flexible-work-schedules.svg"
-                  width="80"
-                  height="80"
-                  alt="Flexible Work Schedules"
-                />
-                <span className={css.caption}>Flexible Work Schedules</span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-pet-friendly.svg"
-                  width="80"
-                  height="80"
-                  alt="Pet Friendly Office"
-                />
-                <span className={css.caption}>Pet Friendly Office</span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-drinks-and-snack.svg"
-                  width="80"
-                  height="80"
-                  alt="Unlimited Snacks &amp; Drinks"
-                />
-                <span className={css.caption}>
-                  Unlimited Snacks &amp; Drinks
-                </span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-eap.svg"
-                  width="80"
-                  height="80"
-                  alt="Employee Assistance Program(EAP)"
-                />
-                <span className={css.caption}>
-                  Employee Assistance Program(EAP)
-                </span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-parental-leave.svg"
-                  width="80"
-                  height="80"
-                  alt="Paid Time Off &amp; Parental Leave"
-                />
-                <span className={css.caption}>
-                  Paid Time Off &amp; Parental Leave
-                </span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-team-building.svg"
-                  width="80"
-                  height="80"
-                  alt="Team Building Events"
-                />
-                <span className={css.caption}>Team Building Events</span>
-              </li>
-              <li>
-                <img
-                  src="/co-career-benefits-custom-swag.svg"
-                  width="80"
-                  height="80"
-                  alt="Custom Swags"
-                />
-                <span className={css.caption}>Custom Swags</span>
-              </li>
             </ul>
-          </div>
-        </div>
-
-        <div className={css.equalOpportunity}>
-          <h3 className={css.title}>
-            Harness is an equal opportunity employer and values diversity in all
-            its forms.
-          </h3>
-          <div className={css.desc}>
-            We do not discriminate on the basis of race, religion, color,
-            national origin, gender, sexual orientation, age, marital status,
-            veteran status, or disability status.
-          </div>
-        </div>
-
-        <div className={cx(css.caseStudy, css.bgDotBlue)}>
-          <div className={css.sectionWrapper}>
-            <div className={css.quote}>
-              <img src="/quote.svg" width="34" height="26" />
-            </div>
-            <div className={css.customersSay}>
-              The work at Harness is interesting, the people and culture are
-              great, and it’s fun to be part of such an amazing growth story.
-            </div>
-            <div className={css.customerName}>
-              Sahithi Kolichala, Sr. Software Engineer
-            </div>
-            <Button className={css.btnLight}>Read Case Study</Button>
+            */}
             <LazyLoadImage
-              className={
-                imgLoaded.p2 ? css.profileLeft : css.profileLeftBeforeLoaded
-              }
-              src="/case-study-profile-career.svg"
-              afterLoad={e => handleImgLoad(e, 'p2')}
-              width="313"
-              height="249"
+              src="/co-about-investors.svg"
+              placeholderSrc="/favicon.png"
+              width="1050"
+              height="340"
+              alt="Placeholder Image, to be replaced"
+              className={css.placeholder}
             />
+          </div>
+        </div>
+
+        <div className={css.offices}>
+          <div className={css.inner}>
+            <div className={css.introTextContainer}>
+              <div className={css.introText}>Our offices</div>
+            </div>
+            <div className={css.officeList}>
+              <div className={css.office}>
+                <div className={css.city}>San Francisco</div>
+                <div className={css.address}>
+                  116 New Montgomery Street, San Francisco, CA 94105
+                </div>
+              </div>
+              <div className={css.office}>
+                <div className={css.city}>Mountain View</div>
+                <div className={css.address}>
+                  444 Castro Street, Mountain View, CA 94105
+                </div>
+              </div>
+              <div className={css.office}>
+                <div className={css.city}>Dallas</div>
+                <div className={css.address}>
+                  5001 Lyndon B Johnson Freeway Ste 550 Dallas, TX 75244
+                </div>
+              </div>
+              <div className={css.office}>
+                <div className={css.city}>London</div>
+                <div className={css.address}>
+                  5 Merchant Square London W2 1A
+                </div>
+              </div>
+              <div className={css.office}>
+                <div className={css.city}>Bengaluru</div>
+                <div className={css.address}>
+                  1329, 24th Main Rd Garden Layout, Sector 2, HSR Layout
+                  Bengaluru, Karnataka 560102, India
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
