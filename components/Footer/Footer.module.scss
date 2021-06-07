@@ -41,6 +41,12 @@
           /* Gray Scale / Gray Scale 400 */
           color: var(--gray-400);
           margin: 12px 0;
+          a {
+            color: var(--gray-400);
+            &:hover, &:active {
+              color: var(--primary-7);
+            }
+          }
         }
       }
     }
@@ -177,6 +183,12 @@
           /* Gray Scale / Gray Scale 400 */
           color: var(--gray-400);
           margin-top: 8px;
+          a {
+            color: var(--gray-400);
+            &:hover, &:active {
+              color: var(--primary-7);
+            }
+          }
         }
       }
     }

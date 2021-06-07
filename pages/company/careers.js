@@ -324,7 +324,8 @@ const CompanyCareers = props => {
               <LazyLoadImage
                 src="/co-career-diversity.svg"
                 placeholderSrc="/favicon.png"
-                width="657" height="650"
+                width="657"
+                height="650"
               />
             </div>
           </div>
@@ -336,14 +337,18 @@ const CompanyCareers = props => {
               <LazyLoadImage
                 src="/co-career-women.svg"
                 placeholderSrc="/favicon.png"
-                width="636" height="643"
+                width="636"
+                height="643"
               />
             </div>
             <div className={css.text}>
               <h3 className={css.title}>Women at Harness</h3>
               <div className={css.desc}>
-              We believe that women bring invaluable qualities into the workplace: communication styles, thought processes, problem-solving approaches, and creativity channels. 
-We strive to foster a female friendly work environment that will attract and retain the best women in the workforce.
+                We believe that women bring invaluable qualities into the
+                workplace: communication styles, thought processes,
+                problem-solving approaches, and creativity channels. We strive
+                to foster a female friendly work environment that will attract
+                and retain the best women in the workforce.
               </div>
             </div>
           </div>
@@ -354,14 +359,17 @@ We strive to foster a female friendly work environment that will attract and ret
             <div className={css.text}>
               <h3 className={css.title}>Pride in Tech</h3>
               <div className={css.desc}>
-              In the efforts of building a diverse workforce, we stand strong with the LGBTQ community and advocating for LGBTQ rights. We are committed to provide a safe, accepting and welcoming workplace.
+                In the efforts of building a diverse workforce, we stand strong
+                with the LGBTQ community and advocating for LGBTQ rights. We are
+                committed to provide a safe, accepting and welcoming workplace.
               </div>
             </div>
             <div className={css.img}>
               <LazyLoadImage
                 src="/co-career-tech.svg"
                 placeholderSrc="/favicon.png"
-                width="670" height="629"
+                width="670"
+                height="629"
               />
             </div>
           </div>
@@ -369,63 +377,140 @@ We strive to foster a female friendly work environment that will attract and ret
 
         <div className={cx(css.sectionBenefits, css.bgDot)}>
           <div className={css.inner}>
-          <h3 className={css.title}>Benefits &amp; Perks</h3>
-          <ul className={css.benefitList}>
-            <li>
-              <img src="/co-career-benefits-competitive-salary.svg" width="80" height="80" alt="Competitive Salary" />
-              <span className={css.caption}>Competitive Salary</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-comprehensive-healthcare-benefits.svg" width="80" height="80" alt="Comprehensive Healthcare Benefits" />
-              <span className={css.caption}>Comprehensive Healthcare Benefits</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-fsa.svg" width="80" height="80" alt="Flexible Spending Account (FSA)" />
-              <span className={css.caption}>Flexible Spending Account (FSA)</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-computer-benefits.svg" width="80" height="80" alt="Computer Benefits" />
-              <span className={css.caption}>Computer Benefits</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-employee-referral-bonus.svg" width="80" height="80" alt="Employee Referral Bonus" />
-              <span className={css.caption}>Employee Referral Bonus</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-flexible-work-schedules.svg" width="80" height="80" alt="Flexible Work Schedules" />
-              <span className={css.caption}>Flexible Work Schedules</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-pet-friendly.svg" width="80" height="80" alt="Pet Friendly Office" />
-              <span className={css.caption}>Pet Friendly Office</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-drinks-and-snack.svg" width="80" height="80" alt="Unlimited Snacks &amp; Drinks" />
-              <span className={css.caption}>Unlimited Snacks &amp; Drinks</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-eap.svg" width="80" height="80" alt="Employee Assistance Program(EAP)" />
-              <span className={css.caption}>Employee Assistance Program(EAP)</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-parental-leave.svg" width="80" height="80" alt="Paid Time Off &amp; Parental Leave" />
-              <span className={css.caption}>Paid Time Off &amp; Parental Leave</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-team-building.svg" width="80" height="80" alt="Team Building Events" />
-              <span className={css.caption}>Team Building Events</span>
-            </li>
-            <li>
-              <img src="/co-career-benefits-custom-swag.svg" width="80" height="80" alt="Custom Swags" />
-              <span className={css.caption}>Custom Swags</span>
-            </li>
-          </ul>
+            <h3 className={css.title}>Benefits &amp; Perks</h3>
+            <ul className={css.benefitList}>
+              <li>
+                <img
+                  src="/co-career-benefits-competitive-salary.svg"
+                  width="80"
+                  height="80"
+                  alt="Competitive Salary"
+                />
+                <span className={css.caption}>Competitive Salary</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-comprehensive-healthcare-benefits.svg"
+                  width="80"
+                  height="80"
+                  alt="Comprehensive Healthcare Benefits"
+                />
+                <span className={css.caption}>
+                  Comprehensive Healthcare Benefits
+                </span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-fsa.svg"
+                  width="80"
+                  height="80"
+                  alt="Flexible Spending Account (FSA)"
+                />
+                <span className={css.caption}>
+                  Flexible Spending Account (FSA)
+                </span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-computer-benefits.svg"
+                  width="80"
+                  height="80"
+                  alt="Computer Benefits"
+                />
+                <span className={css.caption}>Computer Benefits</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-employee-referral-bonus.svg"
+                  width="80"
+                  height="80"
+                  alt="Employee Referral Bonus"
+                />
+                <span className={css.caption}>Employee Referral Bonus</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-flexible-work-schedules.svg"
+                  width="80"
+                  height="80"
+                  alt="Flexible Work Schedules"
+                />
+                <span className={css.caption}>Flexible Work Schedules</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-pet-friendly.svg"
+                  width="80"
+                  height="80"
+                  alt="Pet Friendly Office"
+                />
+                <span className={css.caption}>Pet Friendly Office</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-drinks-and-snack.svg"
+                  width="80"
+                  height="80"
+                  alt="Unlimited Snacks &amp; Drinks"
+                />
+                <span className={css.caption}>
+                  Unlimited Snacks &amp; Drinks
+                </span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-eap.svg"
+                  width="80"
+                  height="80"
+                  alt="Employee Assistance Program(EAP)"
+                />
+                <span className={css.caption}>
+                  Employee Assistance Program(EAP)
+                </span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-parental-leave.svg"
+                  width="80"
+                  height="80"
+                  alt="Paid Time Off &amp; Parental Leave"
+                />
+                <span className={css.caption}>
+                  Paid Time Off &amp; Parental Leave
+                </span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-team-building.svg"
+                  width="80"
+                  height="80"
+                  alt="Team Building Events"
+                />
+                <span className={css.caption}>Team Building Events</span>
+              </li>
+              <li>
+                <img
+                  src="/co-career-benefits-custom-swag.svg"
+                  width="80"
+                  height="80"
+                  alt="Custom Swags"
+                />
+                <span className={css.caption}>Custom Swags</span>
+              </li>
+            </ul>
           </div>
         </div>
 
         <div className={css.equalOpportunity}>
-          <h3 className={css.title}>Harness is an equal opportunity employer and values diversity in all its forms.</h3>
-          <div className={css.desc}>We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status.</div>
+          <h3 className={css.title}>
+            Harness is an equal opportunity employer and values diversity in all
+            its forms.
+          </h3>
+          <div className={css.desc}>
+            We do not discriminate on the basis of race, religion, color,
+            national origin, gender, sexual orientation, age, marital status,
+            veteran status, or disability status.
+          </div>
         </div>
 
         <div className={cx(css.caseStudy, css.bgDotBlue)}>
@@ -433,8 +518,13 @@ We strive to foster a female friendly work environment that will attract and ret
             <div className={css.quote}>
               <img src="/quote.svg" width="34" height="26" />
             </div>
-            <div className={css.customersSay}>The work at Harness is interesting, the people and culture are great, and it’s fun to be part of such an amazing growth story.</div>
-            <div className={css.customerName}>Sahithi Kolichala, Sr. Software Engineer</div>
+            <div className={css.customersSay}>
+              The work at Harness is interesting, the people and culture are
+              great, and it’s fun to be part of such an amazing growth story.
+            </div>
+            <div className={css.customerName}>
+              Sahithi Kolichala, Sr. Software Engineer
+            </div>
             <Button className={css.btnLight}>Read Case Study</Button>
             <LazyLoadImage
               className={

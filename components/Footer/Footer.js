@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import {
   GithubOutlined,
   ExportOutlined,
@@ -16,12 +17,36 @@ export default function Footer(props) {
         <div className={css.siteMap}>
           <ul>
             <div className={css.title}>Products</div>
-            <li>CI/CD Platform Overview</li>
-            <li>Continuous Integration</li>
-            <li>Continuous Delivery</li>
-            <li>Cloud Cost Management</li>
-            <li>Feature Flags</li>
-            <li>Change Intelligence</li>
+            <li>
+              <Link href="/products/platform">
+                <a>CI/CD Platform Overview</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/ci">
+                <a>Continuous Integration</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/cd">
+                <a>Continuous Delivery</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/cloud-cost">
+                <a>Cloud Cost Management</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/feature-flags">
+                <a>Feature Flags</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/ch-intel">
+                <a>Change Intelligence</a>
+              </Link>
+            </li>
           </ul>
           <ul>
             <div className={css.title}>Use Cases</div>
@@ -53,12 +78,20 @@ export default function Footer(props) {
           </ul>
           <ul>
             <div className={css.title}>Company</div>
-            <li>About</li>
+            <li>
+              <Link href="/company/careers">
+                <a>About</a>
+              </Link>
+            </li>
             <li>Press &amp; News</li>
             <li>Partners</li>
             <li>Events</li>
             <li>T-Shirt Store</li>
-            <li>Careers</li>
+            <li>
+              <Link href="/company/careers">
+                <a>Careers</a>
+              </Link>
+            </li>
             <li>Contact Sales</li>
             <li>Contact HQ</li>
             <li>Customers</li>

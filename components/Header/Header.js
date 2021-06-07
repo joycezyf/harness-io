@@ -84,7 +84,7 @@ const Header = () => {
   const switchMobileMenu = (e, isShow) => {
     e.preventDefault()
     setShowMobileMenu(!!isShow)
-    if (document && document.getElementsByTagName) {
+    if (document && document.getElementsByTagName && clientWidth > 0 && clientWidth < 1440) {
       // to avoid the scolling bar caused by the main and footer section while mobile menu is showing up
       document.getElementsByTagName('main')[0].style.display = isShow
         ? 'none'
