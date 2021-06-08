@@ -18,7 +18,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import css from './products.module.scss'
+import css from './ch-intel.module.scss'
 
 const ProductChIntel = props => {
   const [imgLoaded, setImgLoaded] = useState({})

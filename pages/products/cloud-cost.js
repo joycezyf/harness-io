@@ -18,7 +18,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import css from './products.module.scss'
+import css from './cloud-cost.module.scss'
 
 const ProductCloudCost = props => {
   const [imgLoaded, setImgLoaded] = useState({})

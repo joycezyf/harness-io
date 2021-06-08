@@ -19,7 +19,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import css from './products.module.scss'
+import css from './platform.module.scss'
 
 const ProductPlatform = props => {
   const [imgLoaded, setImgLoaded] = useState({})
