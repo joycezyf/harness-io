@@ -19,7 +19,7 @@ import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
 // import 'antd/lib/modal/style/index.css'
-import css from './about.module.scss'
+import css from './about-us.module.scss'
 
 const CompanyCareers = props => {
   const [imgLoaded, setImgLoaded] = useState({})
