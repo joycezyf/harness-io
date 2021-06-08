@@ -500,6 +500,10 @@
       box-shadow: inset 0px 6px 25px rgba(0, 0, 0, 0.04);
     }
     .platformModules {
+      .inner{
+      width: var(--full-width);
+      box-sizing: border-box;
+      margin: 0 auto;
       position: relative;
       color: var(--black);
       padding: 80px 110px;
@@ -587,6 +591,7 @@
           }
         }
       }
+    }
     }
 
     .caseStudy {
