@@ -315,8 +315,8 @@ const ProductPlatform = props => {
         </div>
 
         <div className={css.platformContainer}>
+          <h3 className={css.featuresTitle}>Features Every Great Team Needs</h3>
           <div className={css.productFeatures}>
-            <h3 className={css.title}>Features Every Great Team Needs</h3>
             <ul>
               <li>
                 <div className={css.subIcon}>

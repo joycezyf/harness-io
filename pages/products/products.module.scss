@@ -865,20 +865,91 @@
         }
       }
 
+      .featuresTitle {
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 44px;
+        text-align: center;
+        /* Gray Scale/Black */
+        color: var(--black);
+        margin: 80px 0 64px 0;
+      }
+
+      .screenshot2Col {
+        // background-color: var(--ci-theme-bg);
+        .inner {
+          width: var(--full-width);
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding: 80px 0;
+          .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .title {
+              width: 522px;
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              /* identical to box height */
+              text-transform: capitalize;
+              align-self: flex-end;
+              margin-right: 42px;
+            }
+            .desc {
+              width: 522px;
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 24px;
+              /* Gray Scale / Gray Scale 800 */
+              color: var(--gray-800);
+              align-self: flex-end;
+              margin-right: 42px;
+            }
+            .screenshot {
+              // display: inline-block;
+              align-self: flex-start;
+              margin-left: 42px;
+            }
+          }
+          .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .title {
+              width: 522px;
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              /* identical to box height */
+              text-transform: capitalize;
+              align-self: flex-start;
+              margin-left: 42px;
+            }
+            .desc {
+              width: 522px;
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 24px;
+              /* Gray Scale / Gray Scale 800 */
+              color: var(--gray-800);
+              align-self: flex-start;
+              margin-left: 42px;
+            }
+            .screenshot {
+              align-self: flex-end;
+              margin-right: 42px;
+            }
+          }
+        }
+      }
+
       .productFeatures {
-        padding: 80px 198px;
+        padding: 60px 198px 80px 198px;
         width: var(--full-width);
         box-sizing: border-box;
         margin: 0 auto;
-        .title {
-          font-weight: bold;
-          font-size: 36px;
-          line-height: 44px;
-          text-align: center;
-          /* Gray Scale/Black */
-          color: var(--black);
-          margin: 0 0 64px 0;
-        }
         ul {
           padding: 0;
           margin: 0;
@@ -1116,6 +1187,9 @@
       }
     }
     .cdContainer {
+      .screenshot2Col:nth-child(odd) {
+        background-color: var(--cd-theme-bg);
+      }
       .productFeatures {
         ul {
           li {
@@ -1130,11 +1204,17 @@
       }
     }
     .platformContainer {
+      .screenshot2Col:nth-child(odd) {
+        background-color: var(--platform-theme-bg);
+      }
       .sectionIntegrations {
         background-color: var(--white);
       }
     }
     .ffContainer {
+      .screenshot2Col:nth-child(odd) {
+        background-color: var(--feature-flags-theme-bg);
+      }
       .productFeatures {
         ul {
           li {
@@ -1149,6 +1229,9 @@
       }
     }
     .cloudCostContainer {
+      .screenshot2Col:nth-child(odd) {
+        background-color: var(--cloud-cost-theme-bg);
+      }
       .productFeatures {
         ul {
           li {
@@ -1163,6 +1246,9 @@
       }
     }
     .chIntelContainer {
+      .screenshot2Col:nth-child(odd){
+        background-color: var(--ch-intel-theme-bg);
+      }
       .productFeatures {
         ul {
           li {
@@ -1174,6 +1260,11 @@
       }
       .sectionIntegrations {
         background-color: var(--ch-intel-theme-bg);
+      }
+    }
+    .ciContainer {
+      .screenshot2Col:nth-child(odd){
+        background-color: var(--ci-theme-bg);
       }
     }
   }
