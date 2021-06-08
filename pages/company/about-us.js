@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from 'antd'
+import { Button, Modal } from 'antd'
 import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons'
 import Marquee from 'react-fast-marquee'
 import cx from 'classnames'
@@ -18,7 +18,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-// import 'antd/lib/modal/style/index.css'
+import 'antd/lib/modal/style/index.css'
 import css from './about-us.module.scss'
 
 const CompanyCareers = props => {
@@ -111,10 +111,18 @@ const CompanyCareers = props => {
             </div>
           </div>
           <div className={css.awards}>
-            <div className={css.awardItem}>to be replaced by an award</div>
+            <div className={css.awardItem}>
+              <img
+                src="/co-about-award-tech-crunch.svg"
+                width="120"
+                height="60"
+              />
+              Best Tech Startups to work for in 2021
+            </div>
 
             <div className={css.awardItem}>
-              Fastest growing DevOps companies of all time
+              <img src="/co-about-award-forbes.svg" width="120" height="45" />
+              50 Best Cloud Computing Companies to work for in 2021
             </div>
 
             <div className={css.awardItem}>
@@ -123,7 +131,11 @@ const CompanyCareers = props => {
             </div>
 
             <div className={css.awardItem}>
-              <img src="/co-about-award-glassdoor.svg" width="137" height="44" />
+              <img
+                src="/co-about-award-glassdoor.svg"
+                width="137"
+                height="44"
+              />
               <div>2021 Best Places to Work</div>
             </div>
           </div>
@@ -140,6 +152,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Jyoti Bansal"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Jyoti Bansal</h5>
@@ -152,6 +165,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Rishi Singh"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Rishi Singh</h5>
@@ -164,6 +178,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Jason Eubanks"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Jason Eubanks</h5>
@@ -176,6 +191,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="John Bonney"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>John Bonney</h5>
@@ -188,6 +204,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Jill Passalacqua"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Jill Passalacqua</h5>
@@ -200,6 +217,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Steve Burton"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Steve Burton</h5>
@@ -212,6 +230,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Hemant Khandelwal"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Hemant Khandelwal</h5>
@@ -224,6 +243,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Sri Ramalingam"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Sri Ramalingam</h5>
@@ -236,6 +256,7 @@ const CompanyCareers = props => {
                     width="283"
                     height="246"
                     alt="Luan Lam"
+                    onClick={showModal}
                   />
                 </div>
                 <h5 className={css.name}>Luan Lam</h5>
@@ -244,6 +265,74 @@ const CompanyCareers = props => {
             </ul>
           </div>
         </div>
+
+        {isModalVisible && (
+          <Modal
+            title={null}
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            closable={true}
+            maskClosable={true}
+            centered={true}
+            width={740}
+            height={608}
+            footer={null}
+            destroyOnClose={true}
+            bodyStyle={{
+              padding: 0,
+              height: '608px',
+              boxShadow: '0px 16px 24px #d77528',
+              position: 'relative',
+              marginTop: '100px',
+              backgroundColor: 'var(--primary-10)',
+              padding: '40px',
+              boxSizing: 'border-box'
+            }}
+            wrapClassName={css.modal}
+          >
+            <img
+              src="/co-about-exec-jyoti.svg"
+              width="283"
+              height="246"
+              alt="Jyoti Bansal"
+            />
+            <div className={css.name}>Jyoti Bansal</div>
+            <div className={css.position}>Co-Founder &amp; CEO</div>
+            <div className={css.desc}>
+              <p>
+                Jyoti Bansal is a serial entrepreneur and a silicon valley
+                technology visionary.
+              </p>
+
+              <p>
+                Jyoti believes passionately in software’s ability to change the
+                world for the better. In 2008, he founded AppDynamics, an
+                application intelligence company that provides enterprises with
+                real-time insights into application performance. Jyoti led the
+                company as Founder &amp; CEO for the first eight years, and as
+                Founder &amp; Chairman for the last one year until its
+                acquisition by Cisco for $3.7 Billion in January 2017.
+              </p>
+
+              <p>
+                Jyoti has been a recipient of many leadership awards, including
+                Forbes’ “Best Cloud Computing CEO to Work For”, and “Best CEO”
+                by San Francisco Business Times at the Annual Tech &amp;
+                Innovation Award. He was named Ernst &amp; Young Entrepreneur Of
+                The Year™ for Northern California in 2016.
+              </p>
+
+              <p>
+                Jyoti received his BS in Computer Science from the Indian
+                Institute of Technology, Delhi. Prior to founding AppDynamics,
+                Jyoti worked at various silicon valley startups as a software
+                engineer and architect. Jyoti is the lead inventor on 20+ US
+                patents.
+              </p>
+            </div>
+          </Modal>
+        )}
 
         <div className={css.joinTheTeam}>
           <img
@@ -315,32 +404,6 @@ const CompanyCareers = props => {
             </div>
           </div>
         </div>
-        {/*isModalVisible && (
-          <Modal
-            title={null}
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            closable={false}
-            maskClosable={true}
-            centered={true}
-            width={1120}
-            height={630}
-            footer={null}
-            destroyOnClose={true}
-            bodyStyle={{ padding: 0, height: '630px' }}
-          >
-            <iframe
-              width="1120"
-              height="630"
-              src="https://www.youtube.com/embed/SEL1EzMCxs8?&autoplay=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </Modal>
-        )*/}
 
         <div className={cx(css.valuesContainer, css.bgDot)}>
           <div className={css.productFeatures}>
