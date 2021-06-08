@@ -163,7 +163,7 @@
       .sectionWLeft,
       .sectionWRight,
       .sectionExploreWRight {
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 24px 24px 36px 24px;
           :global {
@@ -204,7 +204,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -213,7 +213,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
-          .btnContaner {
+          .btnContainer {
             button {
               width: 100%;
             }
@@ -241,7 +241,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -291,7 +291,7 @@
           width: 100%;
           height: auto;
         }
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 36px 24px;
           :global {

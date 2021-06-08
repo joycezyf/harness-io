@@ -155,7 +155,7 @@
     }
     .customers {
       padding: 48px 24px;
-      .btnContaner {
+      .btnContainer {
         text-align: center;
         margin-top: 32px;
         img {
@@ -249,7 +249,7 @@
       .sectionWLeft,
       .sectionWRight,
       .sectionExploreWRight {
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 24px 24px 36px 24px;
           :global {
@@ -290,7 +290,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -299,7 +299,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
-          .btnContaner {
+          .btnContainer {
             button {
               width: 100%;
             }
@@ -327,7 +327,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -377,7 +377,7 @@
           width: 100%;
           height: auto;
         }
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 36px 24px;
           :global {
@@ -588,7 +588,7 @@
         // width: var(--full-width);
         margin: 0 auto;
       }
-      .btnContaner {
+      .btnContainer {
         text-align: center;
         margin-top: 32px;
         img {
@@ -685,7 +685,7 @@
       .sectionExploreWRight {
         width: var(--full-width);
         margin: 0 auto;
-        .btnContaner {
+        .btnContainer {
           margin-top: 32px;
           button {
             margin-right: 24px;
@@ -720,7 +720,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -749,7 +749,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-start;
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -786,7 +786,7 @@
           left: 0px;
           top: 24px;
         }
-        .btnContaner {
+        .btnContainer {
           display: none;
         }
       }

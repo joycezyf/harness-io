@@ -132,7 +132,7 @@ const ProductChIntel = props => {
               <img src="/customer-logo.svg" width="228" height="64" />
             </Marquee>
           </div>
-          <div className={css.btnContaner}>
+          <div className={css.btnContainer}>
             <Button className={css.btnLight}>Meet Our Customers</Button>
           </div>
         </div>
