@@ -213,7 +213,7 @@
       }
       .profileLeftBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
       .profileRight,
       .profileRightBeforeLoaded {
@@ -226,11 +226,11 @@
       }
       .profileRightBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
     }
     .beforeLoaded {
-      transform: translateY(-150px);
+      transform: translateY(150px);
     }
     .explore {
       height: 70px;
@@ -640,7 +640,7 @@
       }
       .profileLeftBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
       .profileRight,
       .profileRightBeforeLoaded {
@@ -651,11 +651,11 @@
       }
       .profileRightBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
     }
     .beforeLoaded {
-      transform: translateY(-150px);
+      transform: translateY(150px);
     }
     .explore {
       height: 130px;
