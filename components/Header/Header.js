@@ -430,7 +430,7 @@ const Header = () => {
       </Head>
       <header className={css.header}>
         <div className={css.headerNavWrapper}>
-          <div className={css.logo}>
+          <div className={css.logo} onClick={clearMenus}>
             {/* <img src="/harness.svg" /> */}
 
             <Link href="/">
