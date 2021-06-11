@@ -440,7 +440,7 @@
     .harnessIntro {
       width: var(--full-width);
       margin: 0 auto;
-      padding: 96px 0 62px 110px;
+      padding: 56px 0 44px 110px;
       // background: url(/harness-intro.svg) right bottom no-repeat;
       min-height: 480px;
       display: flex;
@@ -448,7 +448,7 @@
       position: relative;
       box-sizing: border-box;
       .introTextContainer {
-        width: 500px;
+        width: 610px;
         flex-shrink: 0;
         z-index: 7;
         .introText {
@@ -480,7 +480,7 @@
           line-height: 24px;
         }
         .gitStar {
-          margin-top: 36px;
+          margin-top: 24px;
         }
       }
       .introIllustration {
@@ -489,6 +489,7 @@
         position: absolute; // relative;
         z-index: 0;
         right: 0;
+        bottom: 0;
         // img {
         //   width: 911px;
         // }
