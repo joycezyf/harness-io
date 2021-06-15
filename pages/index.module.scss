@@ -155,7 +155,7 @@
     }
     .customers {
       padding: 48px 24px;
-      .btnContaner {
+      .btnContainer {
         text-align: center;
         margin-top: 32px;
         img {
@@ -213,7 +213,7 @@
       }
       .profileLeftBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
       .profileRight,
       .profileRightBeforeLoaded {
@@ -226,11 +226,11 @@
       }
       .profileRightBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
     }
     .beforeLoaded {
-      transform: translateY(-150px);
+      transform: translateY(150px);
     }
     .explore {
       height: 70px;
@@ -249,7 +249,7 @@
       .sectionWLeft,
       .sectionWRight,
       .sectionExploreWRight {
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 24px 24px 36px 24px;
           :global {
@@ -290,7 +290,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -299,7 +299,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
-          .btnContaner {
+          .btnContainer {
             button {
               width: 100%;
             }
@@ -327,7 +327,7 @@
             font-size: 16px; // 18px;
             line-height: 24px;
           }
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -377,7 +377,7 @@
           width: 100%;
           height: auto;
         }
-        .btnContaner {
+        .btnContainer {
           // margin-top: 32px;
           padding: 36px 24px;
           :global {
@@ -446,6 +446,7 @@
       display: flex;
       flex-direction: row;
       position: relative;
+      box-sizing: border-box;
       .introTextContainer {
         width: 500px;
         flex-shrink: 0;
@@ -588,7 +589,7 @@
         // width: var(--full-width);
         margin: 0 auto;
       }
-      .btnContaner {
+      .btnContainer {
         text-align: center;
         margin-top: 32px;
         img {
@@ -640,7 +641,7 @@
       }
       .profileLeftBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
       .profileRight,
       .profileRightBeforeLoaded {
@@ -651,11 +652,11 @@
       }
       .profileRightBeforeLoaded {
         // top: -200px;
-        transform: translateY(-150px);
+        transform: translateY(150px);
       }
     }
     .beforeLoaded {
-      transform: translateY(-150px);
+      transform: translateY(150px);
     }
     .explore {
       height: 130px;
@@ -685,7 +686,7 @@
       .sectionExploreWRight {
         width: var(--full-width);
         margin: 0 auto;
-        .btnContaner {
+        .btnContainer {
           margin-top: 32px;
           button {
             margin-right: 24px;
@@ -720,7 +721,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-end;
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -749,7 +750,7 @@
           // display: flex;
           // align-items: center;
           // justify-content: flex-start;
-          .btnContaner {
+          .btnContainer {
             display: none;
           }
         }
@@ -786,7 +787,7 @@
           left: 0px;
           top: 24px;
         }
-        .btnContaner {
+        .btnContainer {
           display: none;
         }
       }

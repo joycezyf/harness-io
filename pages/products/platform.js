@@ -20,7 +20,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import css from './products.module.scss'
+import css from './platform.module.scss'
 
 const ProductPlatform = props => {
   const [imgLoaded, setImgLoaded] = useState({})
@@ -139,7 +139,7 @@ const ProductPlatform = props => {
                 <video
                   width="960"
                   heiht="452"
-                  src="/harness-hero-hover-2.mp4"
+                  src="/harness-hero-hover-3.mp4"
                   muted={true}
                   autoPlay={true}
                   loop={true}
@@ -217,8 +217,8 @@ const ProductPlatform = props => {
         </div>
 
         <div className={css.platformContainer}>
+          <h3 className={css.featuresTitle}>Features Every Great Team Needs</h3>
           <div className={css.productFeatures}>
-            <h3 className={css.title}>Features Every Great Team Needs</h3>
             <ul>
               {product.map(item => (
                 <li>

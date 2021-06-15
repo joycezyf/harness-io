@@ -18,7 +18,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Error from '../../components/Error'
 
-import css from './products.module.scss'
+import css from './ch-intel.module.scss'
 
 const ProductChIntel = props => {
   const [imgLoaded, setImgLoaded] = useState({})
@@ -132,14 +132,65 @@ const ProductChIntel = props => {
               <img src="/customer-logo.svg" width="228" height="64" />
             </Marquee>
           </div>
-          <div className={css.btnContaner}>
+          <div className={css.btnContainer}>
             <Button className={css.btnLight}>Meet Our Customers</Button>
           </div>
         </div>
 
         <div className={css.chIntelContainer}>
+          <h3 className={css.featuresTitle}>Features Every Great Team Needs</h3>
+
+          <div className={css.screenshot2Col}>
+            <div className={css.inner}>
+              <div className={css.left}>
+                <h5 className={css.title}>
+                  A feature that worth showcaseing a screenshot with
+                </h5>
+                <div className={css.desc}>
+                  Our AI takes your delivery pipelines to the next level. You
+                  can automate canary verifications, prioritize what tests to
+                  run, determine impact of changes, automate cloud costs, and
+                  much more.
+                </div>
+              </div>
+              <div className={css.right}>
+                <LazyLoadImage
+                  src="/products-features-screenshot-1.svg"
+                  placeholderSrc="/favicon.png"
+                  width="596"
+                  height="304"
+                  className={css.screenshot}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={css.screenshot2Col}>
+            <div className={css.inner}>
+              <div className={css.left}>
+                <LazyLoadImage
+                  src="/products-features-screenshot-1.svg"
+                  placeholderSrc="/favicon.png"
+                  width="596"
+                  height="304"
+                  className={css.screenshot}
+                />
+              </div>
+              <div className={css.right}>
+                <h5 className={css.title}>
+                  A feature that worth showcaseing a screenshot with
+                </h5>
+                <div className={css.desc}>
+                  Our AI takes your delivery pipelines to the next level. You
+                  can automate canary verifications, prioritize what tests to
+                  run, determine impact of changes, automate cloud costs, and
+                  much more.
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className={css.productFeatures}>
-            <h3 className={css.title}>Features Every Great Team Needs</h3>
             <ul>
               <li>
                 <div className={css.subIcon}>

@@ -152,7 +152,7 @@ const Home = props => {
               <video
                 width="960"
                 heiht="452"
-                src="/harness-hero-hover-2.mp4"
+                src="/harness-hero-hover-3.mp4"
                 muted={true}
                 autoPlay={true}
                 loop={true}
@@ -215,7 +215,7 @@ const Home = props => {
               />
             </Marquee>
           </div>
-          <div className={css.btnContaner}>
+          <div className={css.btnContainer}>
             <Button className={css.btnLight}>Meet Our Customers</Button>
           </div>
         </div>
@@ -322,7 +322,7 @@ const Home = props => {
               <h3>{cdTitle /*Continuous Delivery*/}</h3>
               <h6 className={css.subTitle}>{cdSubTitle}</h6>
               <div className={css.desc}>{cdDesc}</div>
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
               </div>
@@ -334,7 +334,7 @@ const Home = props => {
                 width="860"
                 height="460"
               />
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button>Learn More</Button>
               </div>
             </div>
@@ -348,7 +348,7 @@ const Home = props => {
                 width="800"
                 height="651"
               />
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button>Learn More</Button>
               </div>
             </div>
@@ -359,7 +359,7 @@ const Home = props => {
                   <h3>{ciTitle /*Continuous Integration*/}</h3>
                   <h6 className={css.subTitle}>{ciSubTitle}</h6>
                   <div className={css.desc}>{ciDesc}</div>
-                  <div className={css.btnContaner}>
+                  <div className={css.btnContainer}>
                     <Button type="primary">Try It Out</Button>
                     <Button>Learn More</Button>
                   </div>
@@ -376,7 +376,7 @@ const Home = props => {
               <h3>{cloudCostTitle /*Cloud Cost Management*/}</h3>
               <h6 className={css.subTitle}>{cloudCostSubTitle}</h6>
               <div className={css.desc}>{cloudCostDesc}</div>
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
               </div>
@@ -388,7 +388,7 @@ const Home = props => {
                 width="688"
                 height="520"
               />
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button>Learn More</Button>
               </div>
             </div>
@@ -403,7 +403,7 @@ const Home = props => {
                   width="789"
                   height="543"
                 />
-                <div className={css.btnContaner}>
+                <div className={css.btnContainer}>
                   <Button>Learn More</Button>
                 </div>
               </div>
@@ -411,7 +411,7 @@ const Home = props => {
                 <h3>{featureFlagsTitle /*Feature Flags*/}</h3>
                 <h6 className={css.subTitle}>{featureFlagsSubTitle}</h6>
                 <div className={css.desc}>{featureFlagsDesc}</div>
-                <div className={css.btnContaner}>
+                <div className={css.btnContainer}>
                   <Button type="primary">Try It Out</Button>
                   <Button>Learn More</Button>
                 </div>
@@ -427,7 +427,7 @@ const Home = props => {
               <h3>{chIntelTitle /*Change Intelligence*/}</h3>
               <h6 className={css.subTitle}>{chIntelSubTitle}</h6>
               <div className={css.desc}>{chIntelDesc}</div>
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
               </div>
@@ -440,7 +440,7 @@ const Home = props => {
                 width="844"
                 height="477"
               />
-              <div className={css.btnContaner}>
+              <div className={css.btnContainer}>
                 <Button>Learn More</Button>
               </div>
             </div>

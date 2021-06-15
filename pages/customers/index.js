@@ -347,7 +347,7 @@ const ProductPlatform = props => {
         <div className={css.modules2Col}>
           <div className={cx(css.module, css.greenBg)}>
             <div className={css.moduleName}>
-              <img src="/icon-cloud-cost.svg" width="40" height="40" />
+              <img src="/icon-ccm.svg" width="40" height="40" />
               Cloud Cost Management
             </div>
             <div className={css.quote}>
@@ -478,131 +478,135 @@ const ProductPlatform = props => {
           </div>
         </div>
         <div className={cx(css.platformModules)}>
-          {/* <LazyLoadImage
+          <div className={css.inner}>
+            {/* <LazyLoadImage
             src="/product-platform-harnessbg.svg"
             className={css.harnessWatermark}
           /> */}
-          <h5 className={css.supTitle}>Explore Products</h5>
-          <h2 className={css.title}>
-            Fully integrated modules with one pipeline for all
-          </h2>
-          <div className={css.desc}>
-            Learn more about our platform and modules
+            <h5 className={css.supTitle}>Explore Products</h5>
+            <h2 className={css.title}>
+              Fully integrated modules with one pipeline for all
+            </h2>
+            <div className={css.desc}>
+              Learn more about our platform and modules
+            </div>
+            <ul>
+              <li>
+                <Link href="/products/cd">
+                  <a>
+                    <div className={css.moduleContainer}>
+                      <div className={css.icon}>
+                        <img src="/icon-cd.svg" width="64" height="64" />
+                      </div>
+                      <div className={css.text}>
+                        <h5 className={css.moduleTitle}>Continuous Delivery</h5>
+                        <div className={css.moduleDesc}>
+                          Self-Service Continuous Delivery module that enables
+                          engineers to deploy on-demand.
+                        </div>
+                      </div>
+                      <div className={css.buttons}>
+                        <Button>Learn More</Button>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/ci">
+                  <a>
+                    <div className={css.moduleContainer}>
+                      <div className={css.icon}>
+                        <img src="/icon-ci.svg" width="64" height="64" />
+                      </div>
+                      <div className={css.text}>
+                        <h5 className={css.moduleTitle}>
+                          Continuous Integration
+                        </h5>
+                        <div className={css.moduleDesc}>
+                          Container-native CI Solution - all builds are
+                          isolated, and all extensions are standardized.
+                        </div>
+                      </div>
+                      <div className={css.buttons}>
+                        <Button>Learn More</Button>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <div className={css.moduleContainer}>
+                  <div className={css.icon}>
+                    <img src="/icon-ff.svg" width="64" height="64" />
+                  </div>
+                  <div className={css.text}>
+                    <h5 className={css.moduleTitle}>Feature Flags</h5>
+                    <div className={css.moduleDesc}>
+                      Empower product development teams to quickly release
+                      features, with minimal risk.
+                    </div>
+                  </div>
+                  <div className={css.buttons}>
+                    <Button>Learn More</Button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className={css.moduleContainer}>
+                  <div className={css.icon}>
+                    <img src="/icon-ccm.svg" width="64" height="64" />
+                  </div>
+                  <div className={css.text}>
+                    <h5 className={css.moduleTitle}>Cloud Cost Management</h5>
+                    <div className={css.moduleDesc}>
+                      Empowers engineers with cloud cost visibility of their
+                      apps, microservices, and clusters.
+                    </div>
+                  </div>
+                  <div className={css.buttons}>
+                    <Button>Learn More</Button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className={css.moduleContainer}>
+                  <div className={css.icon}>
+                    <img src="/icon-ch-intel.svg" width="64" height="64" />
+                  </div>
+                  <div className={css.text}>
+                    <h5 className={css.moduleTitle}>Change Intelligence</h5>
+                    <div className={css.moduleDesc}>
+                      Keep sane with your change velocity - manage SLOs and
+                      error budgets with ease.
+                    </div>
+                  </div>
+                  <div className={css.buttons}>
+                    <Button>Learn More</Button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className={css.moduleContainer}>
+                  <div className={css.icon}>
+                    <img src="/icon-ch-intel.svg" width="64" height="64" />
+                  </div>
+                  <div className={css.text}>
+                    <h5 className={css.moduleTitle}>
+                      Continuous Infrastructure
+                    </h5>
+                    <div className={css.moduleDesc}>
+                      Manage your infrastructure as code - realized via
+                      terraform scripts or json.
+                    </div>
+                  </div>
+                  <div className={css.buttons}>
+                    <Button>Learn More</Button>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-          <ul>
-            <li>
-              <Link href="/products/cd">
-                <a>
-                  <div className={css.moduleContainer}>
-                    <div className={css.icon}>
-                      <img src="/icon-cd.svg" width="64" height="64" />
-                    </div>
-                    <div className={css.text}>
-                      <h5 className={css.moduleTitle}>Continuous Delivery</h5>
-                      <div className={css.moduleDesc}>
-                        Self-Service Continuous Delivery module that enables
-                        engineers to deploy on-demand.
-                      </div>
-                    </div>
-                    <div className={css.buttons}>
-                      <Button>Learn More</Button>
-                    </div>
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/products/ci">
-                <a>
-                  <div className={css.moduleContainer}>
-                    <div className={css.icon}>
-                      <img src="/icon-ci.svg" width="64" height="64" />
-                    </div>
-                    <div className={css.text}>
-                      <h5 className={css.moduleTitle}>
-                        Continuous Integration
-                      </h5>
-                      <div className={css.moduleDesc}>
-                        Container-native CI Solution - all builds are isolated,
-                        and all extensions are standardized.
-                      </div>
-                    </div>
-                    <div className={css.buttons}>
-                      <Button>Learn More</Button>
-                    </div>
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ff.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Feature Flags</h5>
-                  <div className={css.moduleDesc}>
-                    Empower product development teams to quickly release
-                    features, with minimal risk.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ccm.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Cloud Cost Management</h5>
-                  <div className={css.moduleDesc}>
-                    Empowers engineers with cloud cost visibility of their apps,
-                    microservices, and clusters.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ch-intel.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Change Intelligence</h5>
-                  <div className={css.moduleDesc}>
-                    Keep sane with your change velocity - manage SLOs and error
-                    budgets with ease.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ch-intel.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Continuous Infrastructure</h5>
-                  <div className={css.moduleDesc}>
-                    Manage your infrastructure as code - realized via terraform
-                    scripts or json.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-          </ul>
         </div>
       </main>
       <Footer />

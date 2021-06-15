@@ -96,9 +96,9 @@ const Header = () => {
   }
   const handleScroll = e => {
     const rawScrollTop = getScrollTop() // document.documentElement.scrollTop
-    const rawClientTop = getClientWidth()
+    const rawClientWidth = getClientWidth()
     setScrollTop(rawScrollTop)
-    setClientWidth(rawClientTop)
+    setClientWidth(rawClientWidth)
   }
   const debounceScroll = debounce(handleScroll, 600)
 
@@ -435,7 +435,7 @@ const Header = () => {
       </Head>
       <header className={css.header}>
         <div className={css.headerNavWrapper}>
-          <div className={css.logo}>
+          <div className={css.logo} onClick={clearMenus}>
             {/* <img src="/harness.svg" /> */}
 
             <Link href="/">
@@ -448,7 +448,7 @@ const Header = () => {
             <a
               className={showProductMenu ? css.dropdownSelected : css.dropdown}
               onClick={switchProductMenu}
-              onMouseOver={e => e.preventDefault()}
+              // onMouseOver={e => e.preventDefault()}
             >
               Product
               <DownOutlined />
@@ -458,7 +458,7 @@ const Header = () => {
             <a
               className={showCompanyMenu ? css.dropdownSelected : css.dropdown}
               onClick={switchCompanyMenu}
-              onMouseOver={e => e.preventDefault()}
+              // onMouseOver={e => e.preventDefault()}
             >
               Company
               <DownOutlined />
@@ -466,7 +466,7 @@ const Header = () => {
             <a
               className={showLearnMenu ? css.dropdownSelected : css.dropdown}
               onClick={switchLearnMenu}
-              onMouseOver={e => e.preventDefault()}
+              // onMouseOver={e => e.preventDefault()}
             >
               Learn
               <DownOutlined />
