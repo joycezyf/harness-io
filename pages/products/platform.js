@@ -5,6 +5,7 @@ import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons'
 import Marquee from 'react-fast-marquee'
 import cx from 'classnames'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import axios from 'axios'
 
 import {
   debounce,
@@ -25,7 +26,30 @@ const ProductPlatform = props => {
   const [imgLoaded, setImgLoaded] = useState({})
   const [clientWidth, setClientWidth] = useState(0)
 
+  const [product, setProduct] = useState([])
+  const [feature, setFeature] = useState([])
+  const [title, setTitle] = useState([])
+  const [secTitle, setSecTitle] = useState([])
+  const [quote, setQuote] = useState([{},{}])
+  const [option, setOption] = useState([{},{},{}])
+
+
   useEffect(() => {
+    console.log('Use effect')
+    //get data from strapi
+    axios.get('http://34.94.233.59:1337/product-platform').then(response => {
+      console.log(response.data)
+      console.log("quote is ",response.data.quote)
+      console.log("quote is ",response.data.option)
+      setProduct(response.data.product)
+      setFeature(response.data.feature)
+      setTitle(response.data.title)
+      setSecTitle(response.data.secondaryTitle)
+      setQuote(response.data.quote)
+      setOption(response.data.option)
+
+    })
+
     debounceResize()
     if (window.addEventListener) {
       // window.addEventListener('scroll', debounceResize)
@@ -60,22 +84,6 @@ const ProductPlatform = props => {
     )
   }
 
-  const {
-    // loading,
-    error,
-    data: {
-      marketingSite: {
-        caseStudy1,
-        caseStudy1Client,
-        caseStudy2,
-        caseStudy2Client
-      } = {}
-    } = {}
-  } = props
-  if (error) {
-    return <Error />
-  }
-
   const isMobile = clientWidth > 0 && clientWidth < 1440
   return (
     <>
@@ -83,22 +91,16 @@ const ProductPlatform = props => {
       <main className={css.main}>
         <div className={css.harnessIntroPlatform}>
           <div className={css.introTextContainer}>
-            <div className={css.introText}>
-              Integrated software delivery platform
-            </div>
+            <div className={css.introText}>{title.Title}</div>
             <div
               className={css.introSubText}
               // dangerouslySetInnerHTML={{
               //   __html: heroSubTitle.replace(/\n/g, '<br />')
               // }}
             >
-              One pipeline for everything you need
+              {title.subTitle}
             </div>
-            <div className={css.introDesc}>
-              A self-service platform solution for every team. The Harness CI/CD
-              Platform enables software changes of all types to reach production
-              environments in a safe, quick, and sustainable way.
-            </div>
+            <div className={css.introDesc}>{title.Description}</div>
             <Button type="primary" className={css.btnSignUp}>
               Sign Up for Free
             </Button>
@@ -160,128 +162,32 @@ const ProductPlatform = props => {
             src="/product-platform-harnessbg.svg"
             className={css.harnessWatermark}
           />
-          <h5 className={css.supTitle}>Platform modules</h5>
-          <h2 className={css.title}>
-            Fully integrated modules with one pipeline for all
-          </h2>
-          <div className={css.desc}>
-            Talk about the module pipelines, and how they can be integrated
-            together. Talk about the module pipelines, and how they can be
-            integrated together.
-          </div>
+          <h5 className={css.supTitle}>{secTitle.subTitle}</h5>
+          <h2 className={css.title}>{secTitle.title}</h2>
+          <div className={css.desc}>{secTitle.Description}</div>
           <ul>
-            <li>
-              <Link href="/products/cd">
-                <a>
-                  <div className={css.moduleContainer}>
-                    <div className={css.icon}>
-                      <img src="/icon-cd.svg" width="64" height="64" />
-                    </div>
-                    <div className={css.text}>
-                      <h5 className={css.moduleTitle}>Continuous Delivery</h5>
-                      <div className={css.moduleDesc}>
-                        Self-Service Continuous Delivery module that enables
-                        engineers to deploy on-demand.
+            {feature.map(item => (
+              <li>
+                <Link href={item.link}>
+                  <a>
+                    <div className={css.moduleContainer}>
+                      <div className={css.icon}>
+                        <img src={item.imageName} width="64" height="64" />
+                      </div>
+                      <div className={css.text}>
+                        <h5 className={css.moduleTitle}>{item.featureTitle}</h5>
+                        <div className={css.moduleDesc}>
+                          {item.FeatureIntro}
+                        </div>
+                      </div>
+                      <div className={css.buttons}>
+                        <Button>Learn More</Button>
                       </div>
                     </div>
-                    <div className={css.buttons}>
-                      <Button>Learn More</Button>
-                    </div>
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/products/ci">
-                <a>
-                  <div className={css.moduleContainer}>
-                    <div className={css.icon}>
-                      <img src="/icon-ci.svg" width="64" height="64" />
-                    </div>
-                    <div className={css.text}>
-                      <h5 className={css.moduleTitle}>
-                        Continuous Integration
-                      </h5>
-                      <div className={css.moduleDesc}>
-                        Container-native CI Solution - all builds are isolated,
-                        and all extensions are standardized.
-                      </div>
-                    </div>
-                    <div className={css.buttons}>
-                      <Button>Learn More</Button>
-                    </div>
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ff.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Feature Flags</h5>
-                  <div className={css.moduleDesc}>
-                    Empower product development teams to quickly release
-                    features, with minimal risk.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ccm.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Cloud Cost Management</h5>
-                  <div className={css.moduleDesc}>
-                    Empowers engineers with cloud cost visibility of their apps,
-                    microservices, and clusters.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ch-intel.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Change Intelligence</h5>
-                  <div className={css.moduleDesc}>
-                    Keep sane with your change velocity - manage SLOs and error
-                    budgets with ease.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className={css.moduleContainer}>
-                <div className={css.icon}>
-                  <img src="/icon-ch-intel.svg" width="64" height="64" />
-                </div>
-                <div className={css.text}>
-                  <h5 className={css.moduleTitle}>Continuous Infrastructure</h5>
-                  <div className={css.moduleDesc}>
-                    Manage your infrastructure as code - realized via terraform
-                    scripts or json.
-                  </div>
-                </div>
-                <div className={css.buttons}>
-                  <Button>Learn More</Button>
-                </div>
-              </div>
-            </li>
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -314,116 +220,15 @@ const ProductPlatform = props => {
           <div className={css.productFeatures}>
             <h3 className={css.title}>Features Every Great Team Needs</h3>
             <ul>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-canary.svg" width="45" height="42" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Automated Canary &amp; Blue-Green Deployments
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-rollbacks.svg" width="56" height="74" />
-                </div>
-                <h5 className={css.subTitle}>
-                  ML-based Automated Deployment Verification &amp; Rollbacks
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-pipeline.svg" width="69" height="56" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Developer Friendly Pipeline-as-Code Experience
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-notification.svg" width="49" height="38" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Integrated Approval &amp; Notification flows
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-infra.svg" width="58" height="60" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Automated Infrastructure Provisioning
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-lib.svg" width="62" height="70" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Flexible Parametrization &amp; Template Library
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-audit.svg" width="66" height="66" />
-                </div>
-                <h5 className={css.subTitle}>
-                  Pipeline Governance &amp; Audit Trails
-                </h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
-              <li>
-                <div className={css.subIcon}>
-                  <img src="/feature-security.svg" width="71" height="73" />
-                </div>
-                <h5 className={css.subTitle}>Enterprise-grade Security</h5>
-                <div className={css.subCon}>
-                  More details describing the features, such as, a self-service
-                  platform solution for every team. The Harness CI/CD Platform
-                  enables software changes of all types to reach production
-                  environments in a safe, quick, and sustainable way.
-                </div>
-              </li>
+              {product.map(item => (
+                <li>
+                  <div className={css.subIcon}>
+                    <img src={item.imageName} width="45" height="42" />
+                  </div>
+                  <h5 className={css.subTitle}>{item.featureTitle}</h5>
+                  <div className={css.subCon}>{item.FeatureIntro}</div>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -432,8 +237,8 @@ const ProductPlatform = props => {
               <div className={css.quote}>
                 <img src="/quote.svg" width="34" height="26" />
               </div>
-              <div className={css.customersSay}>{caseStudy1}</div>
-              <div className={css.customerName}>{caseStudy1Client}</div>
+              <div className={css.customersSay}>{quote[0].quoteText}</div>
+              <div className={css.customerName}>{quote[0].quoteName}</div>
               <Button className={css.btnLight}>Read Case Study</Button>
               <LazyLoadImage
                 className={
@@ -451,14 +256,13 @@ const ProductPlatform = props => {
           <div className={css.sectionIntegrations}>
             <div className={css.inner}>
               <div className={css.text}>
-                <div className={css.sup}>Integrations</div>
+                <div className={css.sup}>{option[0].optionSubTitle}</div>
                 <div className={css.title}>
-                  Summarize the supported platforms
+                 {option[0].OptionTitle}
                 </div>
                 <div className={css.desc}>
                   <p>
-                    List all the major supported platforms here. More
-                    placeholder texts.
+                   {option[0].optionDescription}
                   </p>
                 </div>
 
@@ -514,12 +318,10 @@ const ProductPlatform = props => {
                 />
               </div>
               <div className={css.text}>
-                <div className={css.sup}>Hosting Options</div>
-                <h3 className={css.title}>SaaS or On-prem</h3>
+                <div className={css.sup}>{option[1].optionSubTitle}</div>
+                <h3 className={css.title}>{option[1].OptionTitle}</h3>
                 <div className={css.desc}>
-                  You won’t have to maintain a single deployment script ever
-                  again. You just declare in YAML (or in UI) what you want to
-                  automate and Harness does it for you.
+                  {option[1].optionDescription}
                 </div>
 
                 <Button type="primary">Get Started for Free</Button>
@@ -531,17 +333,15 @@ const ProductPlatform = props => {
           <div className={css.sectionIntegrations}>
             <div className={css.inner}>
               <div className={css.text}>
-                <div className={css.sup}>Integrations</div>
+                <div className={css.sup}>{option[2].optionSubTitle}</div>
                 <div className={css.title}>
-                  Show all the integrations Harness support, and harness
-                  connectors
+                {option[2].OptionTitle}
                 </div>
                 <div className={css.desc}>
                   <p>
-                    List the major integration categories, with examples, better
-                    to include a graph to show where the integration point is.
+                   {option[2].optionDescription}
                   </p>
-                  <p>Talk about connectors</p>
+                  {/* <p>Talk about connectors</p> */}
                 </div>
 
                 <Button>Learn More</Button>
@@ -590,8 +390,8 @@ const ProductPlatform = props => {
               <div className={css.quote}>
                 <img src="/quote.svg" width="34" height="26" />
               </div>
-              <div className={css.customersSay}>{caseStudy2}</div>
-              <div className={css.customerName}>{caseStudy2Client}</div>
+              <div className={css.customersSay}>{quote[1].quoteText}</div>
+              <div className={css.customerName}>{quote[1].quoteName}</div>
               <Button className={css.btnLight}>Read Case Study</Button>
               <LazyLoadImage
                 className={
@@ -613,11 +413,11 @@ const ProductPlatform = props => {
 }
 
 /* getStaticProps, TBD... */
-export async function getStaticProps(context) {
-  const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
-  return {
-    props: res // will be passed to the page component as props
-  }
-}
+// export async function getStaticProps(context) {
+//   const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
+//   return {
+//     props: res // will be passed to the page component as props
+//   }
+// }
 
 export default ProductPlatform

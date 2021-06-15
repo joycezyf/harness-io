@@ -15,3 +15,11 @@ export const GET_PAGES = gql`
     }
   }
 `
+
+// export const GET_PRODUCT = gql`
+//   query {
+//     productPlatform {
+//       id, name, published_at, created_at, updated_at
+//     }
+//   }
+// `

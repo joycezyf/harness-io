@@ -243,6 +243,7 @@ const Header = () => {
         <div className={css.learn}>
           <div className={css.title}>DEVELOPER</div>
           <ul>
+
             <li>
               <a>Documentation</a>
             </li>
@@ -252,9 +253,13 @@ const Header = () => {
             <li>
               <a>API</a>
             </li>
-            <li>
-              <a>DevOps tools</a>
+           
+            <li>         
+            <Link href="/developer/devops-tools">
+              <a>DevOps tools</a>     
+              </Link> 
             </li>
+         
             <li>
               <a>Blogs</a>
             </li>

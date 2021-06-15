@@ -1,0 +1,144 @@
+import React, { useState, useEffect } from 'react'
+import { Button } from 'antd'
+import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons'
+import Marquee from 'react-fast-marquee'
+import cx from 'classnames'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
+import {
+  debounce,
+  // getScrollTop,
+  getClientWidth
+} from '../../common/util'
+
+import { GET_PAGE } from '../../queries'
+import client from '../../common/apollo-client-ref'
+
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import Error from '../../components/Error'
+
+import css from './developer.module.scss'
+
+const LearnDevopsTools = props => {
+  const [imgLoaded, setImgLoaded] = useState({})
+  const [clientWidth, setClientWidth] = useState(0)
+
+  useEffect(() => {
+    debounceResize()
+    if (window.addEventListener) {
+      // window.addEventListener('scroll', debounceResize)
+      window.addEventListener('resize', debounceResize)
+      return function cleanup() {
+        // window.removeEventListener('scroll', debounceResize)
+        window.removeEventListener('resize', debounceResize)
+      }
+    } else if (window.attachEvent) {
+      // window.attachEvent('onscroll', debounceResize)
+      window.attachEvent('onresize', debounceResize)
+      return function cleanup() {
+        // window.detachEvent('onscroll', debounceResize)
+        window.detachEvent('onresize', debounceResize)
+      }
+    }
+  }, [])
+
+  function handleResize(e) {
+    // const rawScrollTop = getScrollTop()
+    const rawClientWidth = getClientWidth()
+    // setScrollTop(rawScrollTop)
+    setClientWidth(rawClientWidth)
+  }
+  const debounceResize = debounce(handleResize, 600)
+
+  function handleImgLoad(e, imgId) {
+    setTimeout(
+      () =>
+        setImgLoaded(loaded => Object.assign({}, loaded, { [imgId]: true })),
+      500
+    )
+  }
+
+  const {
+    // loading,
+    error,
+    data: {
+      marketingSite: {
+        heroTitle ,
+        heroSubTitle,
+        caseStudy1,
+        caseStudy1Client,
+        caseStudy2,
+        caseStudy2Client
+      } = {}
+    } = {}
+  } = props
+  if (error) {
+    return <Error />
+  }
+
+
+  const isMobile = clientWidth > 0 && clientWidth < 1440
+  return (
+    <>
+      <Header />
+      <main className={css.main}>
+        <div className={css.harnessIntroDV}>
+          <div className={css.introTextContainer}>
+            <div className={css.introText}>{heroTitle}</div>
+            <div className={css.introSubText} >
+              {/* Blazing Fast Deployment Pipelines in Minutes */}
+            </div>
+            
+            <div className={css.introDesc}>
+           {heroSubTitle}
+            </div>
+            {/* <Button type="primary" className={css.btnSignUp}>
+              Sign Up for Free
+            </Button> */}
+            <div className={css.gitStar}>
+              <iframe
+                src="https://ghbtns.com/github-btn.html?user=drone&repo=ui-core&type=star&count=true"
+                frameBorder="0"
+                scrolling="0"
+                width="150"
+                height="20"
+                title="GitHub"
+              ></iframe>
+            </div>
+          </div>
+          <div className={css.introIllustration}>
+            <img
+              src="/developer-devops-tools-pic.svg"
+              width="750"
+              height="474"
+              // muted={true}
+              // autoPlay={true}
+              // loop={true}
+            />
+          </div>
+        </div>
+      
+        <div className={css.secondTitleContainer}>
+       
+            <h3 className={css.left}>DevOps Tools</h3>
+
+            <div className={css.introDesc}>See how Harness compares to the other DevOps tools in the market.</div>
+
+      
+        </div>
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+/* getStaticProps, TBD... */
+export async function getStaticProps(context) {
+  const res = await client.query({ query: GET_PAGE, variables: { id: 2} })
+  return {
+    props: res // will be passed to the page component as props
+  }
+}
+
+export default LearnDevopsTools
