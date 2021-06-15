@@ -448,7 +448,7 @@ const Header = () => {
               Product
               <DownOutlined />
             </a>
-            <a>Pricing</a>
+            <Link href="/pricing"><a>Pricing</a></Link>
             <Link href="/customers"><a>Customers</a></Link>
             <a
               className={showCompanyMenu ? css.dropdownSelected : css.dropdown}
