@@ -127,6 +127,211 @@ const LearnDevopsTools = props => {
 
       
         </div>
+
+        <div>
+          <div className={css.compareContainer}>
+
+            <div className={css.rowContainer}>
+
+                  <div className={css.titleContainer}>
+                    <img src="/icon-cd.svg" width="48" height="48" alt="CI" />
+                      <text className={css.toolNameText}>Continuous Delivery</text>
+                    </div>
+
+                    <div className={css.vsContainer}>
+                      <div className={css.introSubText}>vs</div>
+                    </div>
+
+                    <div className={css.allLogoContainer}>
+                    
+                  <div className={css.logoWrapper}>
+                    
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-argo.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Argo CD</div>
+                          </div>
+                        </div>  
+
+                  </div>
+
+                  <div className={css.logoWrapper}>
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-octopus.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Octopus Deploy</div>
+                          </div>
+                        </div>  
+                  </div>
+
+                  <div className={css.logoWrapper}>
+
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-jenkins-x.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >JenkinsX</div>
+                          </div>
+                        </div>  
+
+                  </div>
+
+                  <div className={css.logoWrapper}>
+
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-jenkin.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Jenkins</div>
+                          </div>
+                        </div>  
+                  </div>
+                  </div>
+
+           
+            </div>
+          
+            <div className={css.rowContainer}>
+
+                  <div className={css.titleContainer}>
+                    <img src="/icon-ci.svg" width="48" height="48" alt="CI" />
+                      <text className={css.toolNameText}>Continuous Integration</text>
+                    </div>
+
+                    <div className={css.vsContainer}>
+                      <div className={css.introSubText}>vs</div>
+                    </div>
+                    <div className={css.allLogoContainer}>
+                  <div className={css.logoWrapper}>
+                    
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-gitlab.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >GitLab</div>
+                          </div>
+                        </div>  
+
+                  </div>
+
+                  <div className={css.logoWrapper}>
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-azure.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Azure DevOps</div>
+                          </div>
+                        </div>  
+                  </div>
+                  <div className={css.logoWrapper}>
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-bk.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Electric Cloud</div>
+                          </div>
+                        </div>  
+                  </div>
+                  </div>
+
+            </div>
+          
+            <div className={css.rowContainer}>
+
+                  <div className={css.titleContainer}>
+                    <img src="/icon-ff.svg" width="48" height="48" alt="FF" />
+                      <text className={css.toolNameText}>Feature Flags</text>
+                    </div>
+
+                    <div className={css.vsContainer}>
+                      <div className={css.introSubText}>vs</div>
+                    </div>
+                    
+                    <div className={css.allLogoContainer}>
+                  <div className={css.logoWrapper}>
+                    
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-argo.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Digital.AI</div>
+                          </div>
+                        </div>  
+
+                  </div>
+
+                  <div className={css.logoWrapper}>
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-bk.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Electric Cloud</div>
+                          </div>
+                        </div>  
+                  </div>
+                  </div>
+
+            </div>
+            
+          
+            <div className={css.rowContainer}>
+
+              <div className={css.titleContainer}>
+              <img src="/icon-ch-intel.svg" width="48" height="48" alt="FF" />
+                <text className={css.toolNameText}>Change Intelligence</text>
+              </div>
+
+              <div className={css.vsContainer}>
+                <div className={css.introSubText}>vs</div>
+              </div>
+              
+              <div className={css.allLogoContainer}>
+            <div className={css.logoWrapper}>
+              
+                  <div className={css.card}>
+                    <div className={css.logoContainer}>
+                    <img src="/devops-argo.svg" width="100" height="100" alt="AWS" />
+                    <div className={css.logoText} >Digital.AI</div>
+                    </div>
+                  </div>  
+
+            </div>
+
+                  <div className={css.logoWrapper}>
+                        <div className={css.card}>
+                          <div className={css.logoContainer}>
+                          <img src="/devops-bk.svg" width="100" height="100" alt="AWS" />
+                          <div className={css.logoText} >Electric Cloud</div>
+                          </div>
+                        </div>  
+                  </div>
+                  </div>
+
+</div>
+
+
+            <div className={css.rowContainer}>
+
+            <div className={css.titleContainer}>
+            <img src="/icon-ccm.svg" width="48" height="48" alt="CCM" />
+              <text className={css.toolNameText}>Cloud Cost Management</text>
+            </div>
+
+            <div className={css.vsContainer}>
+              <div className={css.introSubText}>vs</div>
+            </div>
+
+            <div className={css.allLogoContainer}>
+            <div className={css.logoWrapper}>
+
+                <div className={css.card}>
+                  <div className={css.logoContainer}>
+                  <img src="/devops-argo.svg" width="100" height="100" alt="AWS" />
+                  <div className={css.logoText} >Digital.AI</div>
+                  </div>
+                </div>  
+
+            </div>
+
+                </div>
+
+            </div>
+
+          </div>
+        </div>
       </main>
       <Footer />
     </>

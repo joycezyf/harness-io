@@ -20,11 +20,37 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Error from '../components/Error'
 
+//import API
+import axios from 'axios'
+
 const Home = props => {
   const [imgLoaded, setImgLoaded] = useState({})
   // const [scrollTop, setScrollTop] = useState(0)
   const [clientWidth, setClientWidth] = useState(0)
+
+
+  const [feature, setFeature] = useState([{},{},{},{}])
+  const [title, setTitle] = useState([])
+  const [explore,setExplore] = useState([{},{},{},{},{}])
+  const [caseStudy1,setCaseStudy1] = useState([])
+  const [caseStudy2,setCaseStudy2] = useState([])
+
   useEffect(() => {
+
+    console.log('Use effect')
+    //get data from strapi
+    axios.get('http://34.94.233.59:1337/home').then(response => {
+      console.log(" response is ",response.data)
+      setTitle(response.data.title)
+      setFeature(response.data.feature)
+      setExplore(response.data.explore)
+      setCaseStudy1(response.data.caseStudy1)
+      setCaseStudy2(response.data.caseStudy2)
+
+
+    })
+
+
     debounceResize()
     if (window.addEventListener) {
       // window.addEventListener('scroll', debounceResize)
@@ -90,10 +116,7 @@ const Home = props => {
         chIntelTitle,
         chIntelSubTitle,
         chIntelDesc,
-        caseStudy1,
-        caseStudy1Client,
-        caseStudy2,
-        caseStudy2Client
+
       } = {}
     } = {}
   } = props
@@ -108,13 +131,13 @@ const Home = props => {
       <main className={css.main}>
         <div className={css.harnessIntro}>
           <div className={css.introTextContainer}>
-            <div className={css.introText}>{heroTitle}</div>
+            <div className={css.introText}>{title.Title}</div>
             <div
               className={css.introSubText}
-              dangerouslySetInnerHTML={{
-                __html: heroSubTitle.replace(/\n/g, '<br />')
-              }}
-            ></div>
+              // dangerouslySetInnerHTML={{
+              //   __html: heroSubTitle.replace(/\n/g, '<br />')
+              // }}
+            >{title.subTitle}</div>
             <Button type="primary" className={css.btnSignUp}>
               Sign Up for Free
             </Button>
@@ -230,8 +253,8 @@ const Home = props => {
           </div>
           <div className={css.sectionWLeft}>
             <div className={css.left}>
-              <h3>{piplineTitle /* One Pipeline for All */}</h3>
-              <div className={css.desc}>{pipelineDesc}</div>
+              <h3>{feature[0].featureTitle}</h3>
+              <div className={css.desc}>{feature[0].FeatureIntro}</div>
             </div>
             <div className={css.right}>
               <LazyLoadImage
@@ -253,16 +276,16 @@ const Home = props => {
                 />
               </div>
               <div className={css.right}>
-                <h3>{developerTitle /* Developer-first Experience */}</h3>
-                <div className={css.desc}>{developerDesc}</div>
+              <h3>{feature[1].featureTitle}</h3>
+              <div className={css.desc}>{feature[1].FeatureIntro}</div>
               </div>
             </div>
           </div>
 
           <div className={css.sectionWLeft}>
             <div className={css.left}>
-              <h3>{aiTitle /*AI/ML-Driven Workflows*/}</h3>
-              <div className={css.desc}>{aiDesc}</div>
+            <h3>{feature[2].featureTitle}</h3>
+              <div className={css.desc}>{feature[2].FeatureIntro}</div>
             </div>
             <div className={css.right}>
               <LazyLoadImage
@@ -286,9 +309,9 @@ const Home = props => {
               </div>
               <div className={css.right}>
                 <h3>
-                  {governaceTitle /*Automated Governance &amp; Guardrails*/}
+                  {feature[3].featureTitle /*Automated Governance &amp; Guardrails*/}
                 </h3>
-                <div className={css.desc}>{governaceDesc}</div>
+                <div className={css.desc}>{feature[3].FeatureIntro}</div>
               </div>
             </div>
           </div>
@@ -298,8 +321,8 @@ const Home = props => {
               <div className={css.quote}>
                 <img src="/quote.svg" width="34" height="26" />
               </div>
-              <div className={css.customersSay}>{caseStudy1}</div>
-              <div className={css.customerName}>{caseStudy1Client}</div>
+              <div className={css.customersSay}>{caseStudy1.quoteText}</div>
+              <div className={css.customerName}>{caseStudy1.quoteName}</div>
               <Button className={css.btnLight}>Read Case Study</Button>
               <LazyLoadImage
                 className={
@@ -319,9 +342,9 @@ const Home = props => {
           </div>
           <div className={css.sectionWLeft} id="cd">
             <div className={css.left}>
-              <h3>{cdTitle /*Continuous Delivery*/}</h3>
-              <h6 className={css.subTitle}>{cdSubTitle}</h6>
-              <div className={css.desc}>{cdDesc}</div>
+              <h3>{explore[0].OptionTitle/*Continuous Delivery*/}</h3>
+              <h6 className={css.subTitle}>{explore[0].optionSubTitle}</h6>
+              <div className={css.desc}>{explore[0].optionDescription}</div>
               <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
@@ -356,9 +379,9 @@ const Home = props => {
               <div className={css.sectionExploreWRight}>
                 <div className={css.left}></div>
                 <div className={css.right}>
-                  <h3>{ciTitle /*Continuous Integration*/}</h3>
-                  <h6 className={css.subTitle}>{ciSubTitle}</h6>
-                  <div className={css.desc}>{ciDesc}</div>
+                <h3>{explore[1].OptionTitle/*Continuous Delivery*/}</h3>
+              <h6 className={css.subTitle}>{explore[1].optionSubTitle}</h6>
+              <div className={css.desc}>{explore[1].optionDescription}</div>
                   <div className={css.btnContainer}>
                     <Button type="primary">Try It Out</Button>
                     <Button>Learn More</Button>
@@ -373,9 +396,9 @@ const Home = props => {
             id="cloud-cost"
           >
             <div className={css.left}>
-              <h3>{cloudCostTitle /*Cloud Cost Management*/}</h3>
-              <h6 className={css.subTitle}>{cloudCostSubTitle}</h6>
-              <div className={css.desc}>{cloudCostDesc}</div>
+            <h3>{explore[2].OptionTitle/*Continuous Delivery*/}</h3>
+              <h6 className={css.subTitle}>{explore[2].optionSubTitle}</h6>
+              <div className={css.desc}>{explore[2].optionDescription}</div>
               <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
@@ -408,9 +431,9 @@ const Home = props => {
                 </div>
               </div>
               <div className={css.right}>
-                <h3>{featureFlagsTitle /*Feature Flags*/}</h3>
-                <h6 className={css.subTitle}>{featureFlagsSubTitle}</h6>
-                <div className={css.desc}>{featureFlagsDesc}</div>
+                <h3>{explore[3].OptionTitle /*Feature Flags*/}</h3>
+                <h6 className={css.subTitle}>{explore[3].optionSubTitle}</h6>
+                <div className={css.desc}>{explore[3].optionDescription}</div>
                 <div className={css.btnContainer}>
                   <Button type="primary">Try It Out</Button>
                   <Button>Learn More</Button>
@@ -424,9 +447,9 @@ const Home = props => {
             id="ch-intel"
           >
             <div className={css.left}>
-              <h3>{chIntelTitle /*Change Intelligence*/}</h3>
-              <h6 className={css.subTitle}>{chIntelSubTitle}</h6>
-              <div className={css.desc}>{chIntelDesc}</div>
+              <h3>{explore[4].OptionTitle /*Change Intelligence*/}</h3>
+              <h6 className={css.subTitle}>{explore[4].optionSubTitle}</h6>
+              <div className={css.desc}>{explore[4].optionDescriptio}</div>
               <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
@@ -451,8 +474,8 @@ const Home = props => {
               <div className={css.quote}>
                 <img src="/quote.svg" width="34" height="26" />
               </div>
-              <div className={css.customersSay}>{caseStudy2}</div>
-              <div className={css.customerName}>{caseStudy2Client}</div>
+              <div className={css.customersSay}>{caseStudy2.quoteText}</div>
+              <div className={css.customerName}>{caseStudy2.quoteName}</div>
               <Button className={css.btnLight}>Read Case Study</Button>
               <LazyLoadImage
                 className={

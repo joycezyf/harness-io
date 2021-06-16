@@ -158,12 +158,13 @@ const ProductPlatform = props => {
         </div>
 
         <div className={cx(css.platformModules, css.bgDot)}>
+        <div className={css.inner}>
           <LazyLoadImage
             src="/product-platform-harnessbg.svg"
             className={css.harnessWatermark}
           />
           <h5 className={css.supTitle}>{secTitle.subTitle}</h5>
-          <h2 className={css.title}>{secTitle.title}</h2>
+          <h2 className={css.title}>{secTitle.Title}</h2>
           <div className={css.desc}>{secTitle.Description}</div>
           <ul>
             {feature.map(item => (
@@ -189,6 +190,7 @@ const ProductPlatform = props => {
               </li>
             ))}
           </ul>
+        </div>
         </div>
 
         <div className={css.anchorLinks}>
