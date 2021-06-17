@@ -24,6 +24,7 @@
     "react-lazy-load-image-component": "^1.5.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
     "sass": "^1.32.12"
   }
 }

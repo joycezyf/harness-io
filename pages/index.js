@@ -268,8 +268,8 @@ const Home = props => {
 
           <div className={css.sectionWLeft}>
             <div className={css.left}>
-            <h3>{feature[1].featureTitle}</h3>
-              <div className={css.desc}>{feature[1].FeatureIntro}</div>
+            <h3>{feature[2].featureTitle}</h3>
+              <div className={css.desc}>{feature[2].FeatureIntro}</div>
             </div>
             <div className={css.right}>
               <LazyLoadImage
@@ -293,9 +293,9 @@ const Home = props => {
               </div>
               <div className={css.right}>
                 <h3>
-                  {feature[2].featureTitle /*Automated Governance &amp; Guardrails*/}
+                  {feature[3].featureTitle /*Automated Governance &amp; Guardrails*/}
                 </h3>
-                <div className={css.desc}>{feature[2].FeatureIntro}</div>
+                <div className={css.desc}>{feature[3].FeatureIntro}</div>
               </div>
             </div>
           </div>

@@ -253,11 +253,10 @@ const Header = () => {
             <li>
               <a>API</a>
             </li>
-           
-            <li>         
-            <Link href="/developer/devops-tools">
-              <a>DevOps tools</a>     
-              </Link> 
+            <li>
+            <Link href="/learn/developer/devops-tools">
+              <a>DevOps tools</a>
+              </Link>
             </li>
          
             <li>
@@ -453,7 +452,7 @@ const Header = () => {
               Product
               <DownOutlined />
             </a>
-            <a>Pricing</a>
+            <Link href="/pricing"><a>Pricing</a></Link>
             <Link href="/customers"><a>Customers</a></Link>
             <a
               className={showCompanyMenu ? css.dropdownSelected : css.dropdown}
