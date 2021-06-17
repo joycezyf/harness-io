@@ -9,16 +9,16 @@ import {
   debounce,
   // getScrollTop,
   getClientWidth
-} from '../../common/util'
+} from '../../../common/util'
 
-import { GET_PAGE } from '../../queries'
-import client from '../../common/apollo-client-ref'
+import { GET_PAGE } from '../../../queries'
+import client from '../../../common/apollo-client-ref'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Error from '../../components/Error'
+import Header from '../../../components/Header'
+import Footer from '../../../components/Footer'
+import Error from '../../../components/Error'
 
-import css from './developer.module.scss'
+import css from '../developer/devops-tools.module.scss'
 
 const LearnDevopsTools = props => {
   const [imgLoaded, setImgLoaded] = useState({})
@@ -135,7 +135,7 @@ const LearnDevopsTools = props => {
 
                   <div className={css.titleContainer}>
                     <img src="/icon-cd.svg" width="48" height="48" alt="CI" />
-                      <text className={css.toolNameText}>Continuous Delivery</text>
+                      <div className={css.toolNameText}>Continuous Delivery</div>
                     </div>
 
                     <div className={css.vsContainer}>
@@ -193,7 +193,7 @@ const LearnDevopsTools = props => {
 
                   <div className={css.titleContainer}>
                     <img src="/icon-ci.svg" width="48" height="48" alt="CI" />
-                      <text className={css.toolNameText}>Continuous Integration</text>
+                      <div className={css.toolNameText}>Continuous Integration</div>
                     </div>
 
                     <div className={css.vsContainer}>
@@ -235,7 +235,7 @@ const LearnDevopsTools = props => {
 
                   <div className={css.titleContainer}>
                     <img src="/icon-ff.svg" width="48" height="48" alt="FF" />
-                      <text className={css.toolNameText}>Feature Flags</text>
+                      <div className={css.toolNameText}>Feature Flags</div>
                     </div>
 
                     <div className={css.vsContainer}>
@@ -271,7 +271,7 @@ const LearnDevopsTools = props => {
 
               <div className={css.titleContainer}>
               <img src="/icon-ch-intel.svg" width="48" height="48" alt="FF" />
-                <text className={css.toolNameText}>Change Intelligence</text>
+                <div className={css.toolNameText}>Change Intelligence</div>
               </div>
 
               <div className={css.vsContainer}>
@@ -307,7 +307,7 @@ const LearnDevopsTools = props => {
 
             <div className={css.titleContainer}>
             <img src="/icon-ccm.svg" width="48" height="48" alt="CCM" />
-              <text className={css.toolNameText}>Cloud Cost Management</text>
+              <div className={css.toolNameText}>Cloud Cost Management</div>
             </div>
 
             <div className={css.vsContainer}>

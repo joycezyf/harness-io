@@ -253,7 +253,9 @@ const Header = () => {
               <a>API</a>
             </li>
             <li>
+            <Link href="/learn/developer/devops-tools">
               <a>DevOps tools</a>
+              </Link>
             </li>
             <li>
               <a>Blogs</a>
