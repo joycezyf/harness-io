@@ -13,7 +13,7 @@ import {
   getClientWidth
 } from '../../common/util'
 
-import { GET_PAGE } from '../../queries'
+import { GET_PRODUCT } from '../../queries'
 import client from '../../common/apollo-client-ref'
 
 import Header from '../../components/Header'
@@ -26,30 +26,28 @@ const ProductPlatform = props => {
   const [imgLoaded, setImgLoaded] = useState({})
   const [clientWidth, setClientWidth] = useState(0)
 
-  const [product, setProduct] = useState([])
-  const [feature, setFeature] = useState([])
-  const [title, setTitle] = useState([])
-  const [secTitle, setSecTitle] = useState([])
-  const [quote, setQuote] = useState([{},{}])
-  const [option, setOption] = useState([{},{},{}])
-
+  const {
+    // loading,
+    error,
+    data: {
+      productPlatform: {
+        id, published_at, created_at, updated_at, 
+        title:title,
+        feature:feature,
+        quote:quote,
+        product:product,
+         option:option,
+        secondaryTitle:secTitle,
+    } = {}
+    } = {}
+  } = props
+  if (error) {
+    return <Error />
+  }
+ console.log("This is features , ",feature)
 
   useEffect(() => {
-    console.log('Use effect')
-    //get data from strapi
-    axios.get('http://34.94.233.59:1337/product-platform').then(response => {
-      console.log(response.data)
-      console.log("quote is ",response.data.quote)
-      console.log("quote is ",response.data.option)
-      setProduct(response.data.product)
-      setFeature(response.data.feature)
-      setTitle(response.data.title)
-      setSecTitle(response.data.secondaryTitle)
-      setQuote(response.data.quote)
-      setOption(response.data.option)
-
-    })
-
+   
     debounceResize()
     if (window.addEventListener) {
       // window.addEventListener('scroll', debounceResize)
@@ -414,12 +412,12 @@ const ProductPlatform = props => {
   )
 }
 
-/* getStaticProps, TBD... */
-// export async function getStaticProps(context) {
-//   const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
-//   return {
-//     props: res // will be passed to the page component as props
-//   }
-// }
+/* getStaticProps*/
+export async function getStaticProps(context) {
+  const res = await client.query({ query: GET_PRODUCT })
+  return {
+    props: res // will be passed to the page component as props
+  }
+}
 
 export default ProductPlatform

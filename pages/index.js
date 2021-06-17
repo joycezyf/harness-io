@@ -4,7 +4,7 @@ import Marquee from 'react-fast-marquee'
 import cx from 'classnames'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-import { GET_PAGE } from '../queries'
+import { GET_HOME } from '../queries'
 import {
   debounce,
   // getScrollTop,
@@ -29,26 +29,26 @@ const Home = props => {
   const [clientWidth, setClientWidth] = useState(0)
 
 
-  const [feature, setFeature] = useState([{},{},{},{}])
-  const [title, setTitle] = useState([])
-  const [explore,setExplore] = useState([{},{},{},{},{}])
-  const [caseStudy1,setCaseStudy1] = useState([])
-  const [caseStudy2,setCaseStudy2] = useState([])
+  // const [feature, setFeature] = useState([{},{},{},{}])
+  // const [title, setTitle] = useState([])
+  // const [explore,setExplore] = useState([{},{},{},{},{}])
+  // const [caseStudy1,setCaseStudy1] = useState([])
+  // const [caseStudy2,setCaseStudy2] = useState([])
 
   useEffect(() => {
 
-    console.log('Use effect')
-    //get data from strapi
-    axios.get('http://34.94.233.59:1337/home').then(response => {
-      console.log(" response is ",response.data)
-      setTitle(response.data.title)
-      setFeature(response.data.feature)
-      setExplore(response.data.explore)
-      setCaseStudy1(response.data.caseStudy1)
-      setCaseStudy2(response.data.caseStudy2)
+    // console.log('Use effect')
+    // //get data from strapi
+    //   axios.get('http://34.94.233.59:1337/home').then(response => {
+    //   console.log(" response is ",response.data)
+    //   setTitle(response.data.title)
+    //   setFeature(response.data.feature)
+    //   setExplore(response.data.explore)
+    //   setCaseStudy1(response.data.caseStudy1)
+    //   setCaseStudy2(response.data.caseStudy2)
 
 
-    })
+    // })
 
 
     debounceResize()
@@ -89,40 +89,24 @@ const Home = props => {
     // loading,
     error,
     data: {
-      marketingSite: {
-        heroTitle = 'The Modern Software Delivery Platform',
-        heroSubTitle = `Loved by Developers
-        Trusted by Businesses`,
-        piplineTitle,
-        pipelineDesc,
-        developerTitle,
-        developerDesc,
-        aiTitle,
-        aiDesc,
-        governaceTitle,
-        governaceDesc,
-        cdTitle,
-        cdSubTitle,
-        cdDesc,
-        ciTitle,
-        ciSubTitle,
-        ciDesc,
-        cloudCostTitle,
-        cloudCostSubTitle,
-        cloudCostDesc,
-        featureFlagsTitle,
-        featureFlagsSubTitle,
-        featureFlagsDesc,
-        chIntelTitle,
-        chIntelSubTitle,
-        chIntelDesc,
-
-      } = {}
+      home: {
+        id, published_at, created_at, updated_at, 
+        title :title,
+        feature:feature,
+        caseStudy1:caseStudy1,
+        caseStudy2:caseStudy2,
+        explore:explore,
+        
+    } = {}
     } = {}
   } = props
   if (error) {
     return <Error />
   }
+
+  //console.log("response is ",props)
+  console.log("response is ",title)
+  console.log("response 2 is ",feature)
 
   const isMobile = clientWidth > 0 && clientWidth < 1440
   return (
@@ -284,8 +268,8 @@ const Home = props => {
 
           <div className={css.sectionWLeft}>
             <div className={css.left}>
-            <h3>{feature[2].featureTitle}</h3>
-              <div className={css.desc}>{feature[2].FeatureIntro}</div>
+            <h3>{feature[1].featureTitle}</h3>
+              <div className={css.desc}>{feature[1].FeatureIntro}</div>
             </div>
             <div className={css.right}>
               <LazyLoadImage
@@ -309,9 +293,9 @@ const Home = props => {
               </div>
               <div className={css.right}>
                 <h3>
-                  {feature[3].featureTitle /*Automated Governance &amp; Guardrails*/}
+                  {feature[2].featureTitle /*Automated Governance &amp; Guardrails*/}
                 </h3>
-                <div className={css.desc}>{feature[3].FeatureIntro}</div>
+                <div className={css.desc}>{feature[2].FeatureIntro}</div>
               </div>
             </div>
           </div>
@@ -449,7 +433,7 @@ const Home = props => {
             <div className={css.left}>
               <h3>{explore[4].OptionTitle /*Change Intelligence*/}</h3>
               <h6 className={css.subTitle}>{explore[4].optionSubTitle}</h6>
-              <div className={css.desc}>{explore[4].optionDescriptio}</div>
+              <div className={css.desc}>{explore[4].optionDescription}</div>
               <div className={css.btnContainer}>
                 <Button type="primary">Try It Out</Button>
                 <Button>Learn More</Button>
@@ -497,10 +481,18 @@ const Home = props => {
 }
 
 export async function getStaticProps(context) {
-  const res = await client.query({ query: GET_PAGE, variables: { id: 1 } })
+
+  // const res = await fetch('http://34.94.233.59:1337/home')
+  // const posts = await res.json()
+
+
+   const res = await client.query({ query: GET_HOME})
+   //console.log("response is ", res)
+
   return {
     props: res // will be passed to the page component as props
   }
+
 }
 
 export default Home

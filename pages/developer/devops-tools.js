@@ -338,7 +338,7 @@ const LearnDevopsTools = props => {
   )
 }
 
-/* getStaticProps, TBD... */
+/* getStaticProps */
 export async function getStaticProps(context) {
   const res = await client.query({ query: GET_PAGE, variables: { id: 2} })
   return {

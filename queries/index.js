@@ -16,10 +16,30 @@ export const GET_PAGES = gql`
   }
 `
 
-// export const GET_PRODUCT = gql`
-//   query {
-//     productPlatform {
-//       id, name, published_at, created_at, updated_at
-//     }
-//   }
-// `
+export const GET_PRODUCT = gql`
+query {
+  productPlatform {
+    id, published_at, created_at, updated_at, 
+    title {Title,Description,subTitle},
+    feature{featureTitle,FeatureIntro,imageName,link},
+    quote{quoteText,quoteName},
+    product{featureTitle,FeatureIntro,imageName,link},
+     option{optionSubTitle,OptionTitle,optionDescription},
+    secondaryTitle {Title,Description,subTitle},
+}
+}
+`
+
+export const GET_HOME = gql`
+query {
+  home {
+    id, published_at, created_at, updated_at, 
+    title {Title,Description,subTitle},
+    feature{featureTitle,FeatureIntro,imageName,link},
+    caseStudy1{quoteText,quoteName},
+    caseStudy2{quoteText,quoteName},
+    explore{optionSubTitle,OptionTitle,optionDescription},
+    
+}
+}
+`
